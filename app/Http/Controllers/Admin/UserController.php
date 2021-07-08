@@ -53,7 +53,6 @@ class UserController extends Controller
         $this->validate($request,[
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-<<<<<<< HEAD
             'email_verified_at' => 'nullable',
             // 'phone' => 'required|numeric',
             'password' => 'required|string|min:6|confirmed',
@@ -63,15 +62,6 @@ class UserController extends Controller
         $user = User::create($request->all());
         $user->email_verified_at = $request->email_verified_at;
         $user->username = $request->username;
-=======
-            // 'phone' => 'required|numeric',
-            // 'password' => 'required|string|min:6|confirmed',
-        ]);
-        $user = new User;
-        $request['password'] = bcrypt($request->password);
-        $user = User::create($request->all());
-        $user->email_verified_at = Carbon::now();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $user->roles()->sync($request->role);
         $user->save();
 
@@ -124,19 +114,12 @@ class UserController extends Controller
         $this->validate($request,[
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-<<<<<<< HEAD
             'email_verified_at' => 'required',
             // no password change by admin allowed
             // 'active' => 'nullable',
         ]);
         $user = User::where('id',$id)->update($request->except('_token','_method','role'));
         // $user->active = $request->active;
-=======
-            // 'phone' => 'required|numeric',
-        ]);
-        $request->active? : $request['active']=0;
-        $user = User::where('id',$id)->update($request->except('_token','_method','role'));
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         User::find($id)->roles()->sync($request->role);
 
         Artisan::call('cache:clear');

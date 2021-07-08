@@ -24,7 +24,6 @@
                                         <th>id</th>
                                         <th>Active</th>
                                         <th>Category</th>
-<<<<<<< HEAD
                                         <th>Προϊόντα</th>
                                         <th>Title</th>
                                         <th>Manager</th>
@@ -33,14 +32,6 @@
                                         @hasanyrole('Super-Admin|Admin|Blogger')
                                         <th>Actions</th>
                                         @endhasanyrole
-=======
-                                        <th>Title</th>
-                                        <th>Manager</th>
-                                        <th>Logo</th>
-                                        {{-- @can('view_companies', 'update_companies', App\Company::class) --}}
-                                        <th>Actions</th>
-                                        {{-- @endcan --}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     </tr>
                                 </thead>
                                 @foreach ($companies as $company)
@@ -54,35 +45,22 @@
                                                 @else None
                                                 @endif
                                             </td>
-<<<<<<< HEAD
                                             <td>{{ $company->products->count() }}</td>
                                             <td>{{ Str::limit($company->title, 10) }}</td>
                                             <td>{{ $company->manager }}</td>
                                             <td>{{ $company->user ? $company->user->username : 'No user' }}</td>
-=======
-                                            <td>{{ Str::limit($company->title, 10) }}</td>
-                                            <td>{{ $company->manager }}</td>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                             <td><img width="150px" height="150px"
                                                     src="{{ asset('images/companies/' . $company->image) }}"
                                                     alt="{{ $company->title }}"></td>
                                             <td>
-<<<<<<< HEAD
                                                 @hasanyrole('Super-Admin|Admin|Blogger')
-=======
-                                                {{-- @can('update_companies', App\Company::class) --}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                                 <a class="btn btn-primary"
                                                     href="{{ route('companies.edit', $company->id) }}">Edit</a> -
                                                 {{-- @endcan
                                                 @can('view_companies', App\Company::class) --}}
                                                 <a class="btn btn-primary"
                                                     href="{{ route('companies.show', $company->id) }}">View</a>
-<<<<<<< HEAD
                                                 @endhasanyrole
-=======
-                                                {{-- @endcan --}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                             </td>
                                         </tr>
                                     </tbody>
@@ -91,7 +69,6 @@
                                     <tr>
                                         <th>id</th>
                                         <th>Active</th>
-<<<<<<< HEAD
                                         <th>Category</th>
                                         <th>Προϊόντα</th>
                                         <th>Title</th>
@@ -101,13 +78,6 @@
                                         @hasanyrole('Super-Admin|Admin|Blogger')
                                         <th>Actions</th>
                                         @endhasanyrole
-=======
-                                        <th>Title</th>
-                                        <th>Image</th>
-                                        {{-- @can('view_companies', 'update_companies', App\Company::class) --}}
-                                        <th>Actions</th>
-                                        {{-- @endcan --}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     </tr>
                                 </tfoot>
                             </table>

@@ -25,16 +25,9 @@
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                                     placeholder="Category Title" required>
                             </div>
-<<<<<<< HEAD
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <img id="image" width="100"/>
-=======
-                            <div class="col-sm-6 form-group">
-                                <label for="image">Image</label>
-                                {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
-                                <img id="image" alt="your image" width="100" height="100" />
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>

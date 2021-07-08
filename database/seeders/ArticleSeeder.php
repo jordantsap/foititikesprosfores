@@ -16,13 +16,7 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
         \DB::table('articles')->truncate();
         $blogs = Article::factory()->count(5)->create();
-=======
-
-      \DB::table('articles')->truncate();
-      $blogs = Article::factory()->count(15)->create();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

@@ -28,11 +28,7 @@ class ArticleFactory extends Factory
             'active' => '1',
             'featured' => rand(0,1),
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
-<<<<<<< HEAD
             'articletype_id' => rand(1,2),
-=======
-            'article_type_id' => rand(1,2),
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
             'description' => $this->faker->name(),
         ];
     }

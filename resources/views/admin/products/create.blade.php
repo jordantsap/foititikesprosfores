@@ -81,10 +81,7 @@
         </div> --}}
 
                         <div class="row">
-<<<<<<< HEAD
                             @hasanyrole('Super-Admin|Admin|Blogger')
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="active"> Active
@@ -94,35 +91,13 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-<<<<<<< HEAD
                                     <label for="slider"> Add to Home Slider
-=======
-                                    <label for="active"> Add to Home Slider
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                         <input type="checkbox" name="slider" value="1">
                                     </label>
                                 </div>
                             </div>
-<<<<<<< HEAD
                             @endhasanyrole
 
-=======
-                            <div class="col-sm-3">
-                                <div class="form-group{{ $errors->has('sku') ? ' has-error' : '' }}">
-                                    <label for="sku">sku</label>
-                                    @if ($errors->has('sku'))
-                                        <strong class="text-danger">{{ $errors->first('sku') }}</strong>
-                                    @endif
-                                    <div class="input-group">
-                                        <input type="text" value="{{ old('sku') }}" class="form-control" name="sku"
-                                            placeholder="sku" required>
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-euro"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             <div class="col-sm-3">
                                 <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                                     <label for="price">Τιμή</label>
@@ -141,7 +116,6 @@
 
 
                             <div class="col-sm-3">
-<<<<<<< HEAD
                                 <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
                                     <label for="color_id">Χρώμα Προϊόντος</label>
                                     @if ($errors->has('color_id'))
@@ -159,19 +133,6 @@
                                             <span class="glyphicon glyphicon-list"></span>
                                         </span>
 
-=======
-                                <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
-                                    <label for="color">Χρώμα</label>
-                                    @if ($errors->has('color'))
-                                        <strong class="text-danger">{{ $errors->first('color') }}</strong>
-                                    @endif
-                                    <div class="input-group">
-                                        <input type="text" value="{{ old('color') }}" class="form-control" name="color"
-                                            placeholder="Χρώμα" required>
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-euro"></span>
-                                        </span>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     </div>
                                 </div>
                             </div>
@@ -181,19 +142,11 @@
                             <div class="col-sm-3 form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                 <label for="image">Image</label>
                                 {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
-<<<<<<< HEAD
                                 <img id="image" width="100"/>
-=======
-                                <img id="image" alt="your image" width="100" height="100" />
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>
                                 {{-- <img src="images/{{ Session::get('image') }}"> --}}
-<<<<<<< HEAD
-=======
-                                <p class="help-block">Example block-level help text here.</p>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 @if ($errors->has('image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('image') }}</strong>
@@ -203,11 +156,7 @@
 
                             <div class="col-sm-3">
                                 <div class="form-group{{ $errors->has('brand_id') ? ' has-error' : '' }}">
-<<<<<<< HEAD
                                     <label for="brand_id">Brand: </label>
-=======
-                                    <label for="image">Brand: </label>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <select id="brand_id" value="{{ old('brand_id') }}" name="brand_id"
                                         class="form-control">
                                         <option value="">Επιλέξτε</option>
@@ -222,7 +171,6 @@
 
                             <div class="col-sm-3">
                                 <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-<<<<<<< HEAD
                                     <label for="category_id">Κατηγορία Προϊόντος</label>
                                     @if ($errors->has('category_id'))
                                         <strong class="text-danger">{{ $errors->first('category_id') }}</strong>
@@ -231,17 +179,6 @@
                                         <select name="category_id" class="form-control" required>
                                             <option value="">Επιλέξτε</option>
                                             @foreach ($categories as $category)
-=======
-                                    <label for="type_id">Κατηγορία Προϊόντος</label>
-                                    @if ($errors->has('type_id'))
-                                        <strong class="text-danger">{{ $errors->first('type_id') }}</strong>
-                                    @endif
-                                    <div class="input-group">
-                                        <select id="category_id" wire:model="selectedCategories" class="form-control"
-                                            required>
-                                            <option value="">Επιλέξτε</option>
-                                            @foreach ($categories as $id => $category)
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
                                             @endforeach
                                         </select>
@@ -257,7 +194,6 @@
 
                         </div>
                         <!--ROW END--->
-<<<<<<< HEAD
                         <div class="col-12">
                             <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
                                 <label for="link">Σύνδεσμος:</label>
@@ -273,8 +209,6 @@
                                 </div>
                             </div>
                         </div>
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
                         <div class="row">
                             <div class="col-sm-12">
@@ -294,11 +228,8 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
-<<<<<<< HEAD
                         -
                         <a class="btn btn-warning" href="javascript:history.back()">Go Back</a>
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                 </form>
             </div>
     </div>

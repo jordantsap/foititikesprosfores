@@ -21,22 +21,12 @@ class UserSeeder extends Seeder
         $admin_role = Role::where('id', 2)->first();
         $blogger_role = Role::where('id', 3)->first();
         $partner_role = Role::where('id', 4)->first();
-<<<<<<< HEAD
         $customer_role = Role::where('id', 5)->first();
         // $product_management = Role::where('id',7)->first();
-=======
-        //   $product_management = Role::where('id',7)->first();
-        $customer_role = Role::where('id', 5)->first();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
         $super_admin = new User();
         $super_admin->username = 'jordantsap';
         $super_admin->active = 1;
-<<<<<<< HEAD
-=======
-        //   $user->fullname = 'JordanTsap';
-        //   $user->mobile = '6984262910';
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $super_admin->email = 'jordantsap@hotmail.gr';
         $super_admin->password = bcrypt('123456');
         $super_admin->email_verified_at = now();
@@ -46,11 +36,6 @@ class UserSeeder extends Seeder
         $admin = new User();
         $admin->username = 'moridis';
         $admin->active = 1;
-<<<<<<< HEAD
-=======
-        //   $admin->fullname = 'JordanTsap';
-        //   $admin->mobile = '6984262910';
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $admin->email = 'moridis@moridis.com';
         $admin->password = bcrypt('123456');
         $admin->email_verified_at = now();
@@ -58,13 +43,8 @@ class UserSeeder extends Seeder
         $admin->roles()->attach($admin_role);
 
         $blogger = new User();
-        $blogger->username = 'fwteini';
+        $blogger->username = 'Blogger';
         $blogger->active = 1;
-<<<<<<< HEAD
-=======
-        //   $blogger->fullname = 'blogger';
-        //   $blogger->mobile = '6984262910';
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $blogger->email = 'blogger@blogger.com';
         $blogger->password = bcrypt('123456');
         $blogger->email_verified_at = now();
@@ -74,10 +54,6 @@ class UserSeeder extends Seeder
         $partner = new User();
         $partner->username = 'Partner';
         $partner->active = 1;
-<<<<<<< HEAD
-=======
-        //   $partner->fullname = 'partner';
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $partner->email = 'partner@partner.com';
         $partner->password = bcrypt('123456');
         $partner->email_verified_at = now();
@@ -87,10 +63,6 @@ class UserSeeder extends Seeder
         $customer = new User();
         $customer->username = 'Customer';
         $customer->active = 1;
-<<<<<<< HEAD
-=======
-        //   $customer->fullname = 'customer';
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         $customer->email = 'customer@customer.com';
         $customer->password = bcrypt('123456');
         $customer->email_verified_at = now();

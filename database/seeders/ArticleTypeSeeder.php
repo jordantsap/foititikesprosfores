@@ -15,7 +15,6 @@ class ArticleTypeSeeder extends Seeder
     public function run()
     {
         \DB::table('article_types')->truncate();
-<<<<<<< HEAD
         ArticleType::insert([
             'title' => 'Tips',
         ]);
@@ -25,16 +24,5 @@ class ArticleTypeSeeder extends Seeder
         ArticleType::insert([
             'title' => 'Support',
         ]);
-=======
-      ArticleType::insert([
-        'title' => 'Tips',
-      ]);
-      ArticleType::insert([
-        'title' => 'Blog',
-      ]);
-      ArticleType::insert([
-        'title' => 'Support',
-      ]);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

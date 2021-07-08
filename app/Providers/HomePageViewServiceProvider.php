@@ -32,10 +32,6 @@ class HomePageViewServiceProvider extends ServiceProvider
     public function boot()
     {
         /* this is the file that loads all the data that is shown in the megamenu and home views partials */
-<<<<<<< HEAD
-
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         view()->composer(['partials.sidebar', 'partials.megamenu', 'partner-form'], function ($view) {
 
             $categories = Cache::rememberForever('categories', function(){
@@ -47,16 +43,6 @@ class HomePageViewServiceProvider extends ServiceProvider
             $view->with('categories', $categories);
 
           });
-<<<<<<< HEAD
-=======
-        view()->composer('partials.slider', function ($view) {
-
-            $products = Product::active()->addToSlider()->get();
-
-            $view->with('products', $products);
-
-          });
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
         view()->composer('partials.sidebar', function ($view) {
 
@@ -101,7 +87,6 @@ class HomePageViewServiceProvider extends ServiceProvider
             });
             $view->with('homeposts', $homeposts);
           });
-<<<<<<< HEAD
 
           // NO CACHING
         view()->composer('index', function ($view) {
@@ -111,7 +96,5 @@ class HomePageViewServiceProvider extends ServiceProvider
             $view->with('products', $products);
 
           });
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

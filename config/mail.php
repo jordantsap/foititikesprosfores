@@ -84,15 +84,10 @@ return [
     */
 
     'from' => [
-<<<<<<< HEAD
         'address' => env('MAIL_FROM_ADDRESS', 'support@foititikesprosfores.local'),
         'name' => env('MAIL_FROM_NAME', 'Foititikes Prosfores'),
-=======
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     ],
-    // 'from' => ['address' => 'sender@foititikesprosfores.local', 'name' => 'Foititikes Prosfores'],
+     'from' => ['address' => 'sender@foititikesprosfores.local', 'name' => 'Foititikes Prosfores'],
 
     /*
     |--------------------------------------------------------------------------

@@ -28,14 +28,11 @@
           <label for="categoryname">category Name</label>
           <input type="text" class="form-control" value="{{$category->title}}" id="categoryname" placeholder="Rokle Name" disabled>
         </div>
-<<<<<<< HEAD
         <div class="form-group col-sm-12 mt-2">
             <label for="image">Image</label><br>
             <img width="150" height="150" src="{{ asset('images/categories/' . $category->image) }}"
                 alt="{{ $category->title }}">
         </div>
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
       </div>
       <!-- /.box-body -->

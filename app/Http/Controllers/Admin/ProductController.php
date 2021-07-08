@@ -6,28 +6,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
-<<<<<<< HEAD
 use App\Models\Color;
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 use App\Models\Company;
 use DB;
 use App\Models\Product;
 use App\Models\Type;
-<<<<<<< HEAD
 use App\Notifications\ProductCreatedNotification;
 use App\Notifications\ProductUpdatedNotification;
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 use Artisan;
 use Image;
 use Auth;
 use File;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Notification;
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 use Str;
 
 // use Illuminate\Http\File;
@@ -40,16 +31,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         //   $this->authorize('view_products', 'App\Product');
         $products = Product::with(['category', 'company'])->orderBy('id', 'DESC')->paginate(9);
         return view('admin.products.index', compact('products'));
-=======
-    //   $this->authorize('view_products', 'App\Product');
-        $products = Product::with('category')->orderBy('id', 'DESC')->paginate(9);
-        return view('admin.products.index', compact('products'));
-
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -63,12 +47,8 @@ class ProductController extends Controller
         $categories = Category::all();
         $brands = Brand::all();
         $companies = Company::all();
-<<<<<<< HEAD
         $colors = Color::all();
         return view('admin.products.create', compact('colors', 'companies', 'brands', 'categories'));
-=======
-        return view('admin.products.create', compact('companies', 'brands', 'categories'));
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -79,7 +59,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required|max:100',
             'description' => 'required',
@@ -134,54 +113,6 @@ class ProductController extends Controller
             'alert-type' => 'info'
         );
         return redirect(route('products.index'))->with($notification);
-=======
-      $this->validate($request,[
-          'title' =>'required|max:100',
-          'description' =>'required',
-          'sku' =>'required',
-          'user_id' => 'nullable|integer|Auth::user()->id',
-          'brand_id' => 'nullable',
-          'category_id' => '',
-          'active' => 'nullable',
-          'slider' => 'nullable',
-          'product_type' => '',
-          'image' => '',
-          'color' => '',
-          'price' => '',
-          ]);
-
-      $product = new Product;
-      $product->title = $request->input('title');
-      $product->slug = Str::slug($request->input('title'), '-');
-      $product->user_id = Auth::user()->id ?? null;
-      $product->brand_id = $request->brand_id;
-      $product->price = $request->price;
-      $product->category_id = $request->category_id;
-      $product->image = $request->image;
-      $product->sku = $request->sku;
-      $product->color = $request->color;
-      $product->active = $request->active;
-      $product->slider = $request->slider;
-      $product->description = $request->description;
-
-      if ($request->hasFile('image')) {
-          $image = $request->file('image');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path("products/" . $filename);
-          Image::make($image)->resize(800, 400)->save($location);
-          $product->image = $filename;
-        }
-
-      $product->save();
-
-      Artisan::call('cache:clear');
-
-      $notification = array(
-      'message' => 'Product added successfully',
-      'alert-type' => 'info'
-      );
-      return redirect(route('product.show',$product->id))->with($notification);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -207,7 +138,6 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
         //   $this->authorize('update_products', 'App\Product');
         $product = Product::with('company')->find($id);
         $categories = Category::all();
@@ -215,14 +145,6 @@ class ProductController extends Controller
         $companies = Company::all();
         $brands = Brand::all();
         return view('admin.products.edit', compact('colors', 'product', 'categories', 'companies', 'brands'));
-=======
-    //   $this->authorize('update_products', 'App\Product');
-      $categories = Category::all();
-      $companies = Company::all();
-      $brands = Brand::all();
-      $product = Product::with('company')->find($id);
-        return view('admin.products.edit', compact('product','categories', 'companies', 'brands'));
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -235,7 +157,6 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
 
-<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required|max:100',
             'slug' => 'unique:products,title',
@@ -295,60 +216,6 @@ class ProductController extends Controller
 
 
         return redirect(route('products.index'))->with($notification);
-=======
-      $this->validate($request,[
-          'title' =>'required|max:100',
-          'slug' => 'unique:products,title',
-          'description' =>'required',
-          'active' => 'nullable',
-          'slider' => 'nullable',
-          'company_id' => 'required',
-          'brand_id' => 'nullable',
-          'category_id' => '',
-          'image' => '',
-          'price' => 'required',
-          'sku' => 'required',
-          'user_id' => 'nullable|integer|Auth::user()->id',
-          ]);
-
-      $product = Product::find($product->id);
-      $product->title = $request->title;
-      $product->slug = Str::slug($request->title, '-');
-    //   $product->user_id = $request->user_id;
-      $product->brand_id = $request->brand_id;
-      $product->category_id = $request->category_id;
-      $product->image = $request->image;
-      $product->active = $request->active;
-      $product->slider = $request->slider;
-      $product->sku = $request->sku;
-      $product->description = $request->description;
-      $product->user_id = Auth::user()->id ?? null;
-
-      if ($request->hasFile('image')) {
-        //add new photo
-          $image = $request->file('image');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path("images/products/" . $filename);
-          $oldfile = public_path("images/products/" . $product->image);
-          // dd($oldfile);
-          if(File::exists($oldfile))
-          {
-             File::delete($oldfile);
-           }
-        //    Image::make($header)->resize(800, 400)->save($location);
-          $product->image = $filename;
-        }
-
-      $product->save();
-
-      Artisan::call('cache:clear');
-
-      $notification = array(
-      'message' => 'Product updated successfully',
-      'alert-type' => 'info'
-      );
-      return redirect(route('products.show', $product->id))->with($notification);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -359,7 +226,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
         //   $this->authorize('delete_products', 'App\Models\Product');
         Product::where('id', $id)->delete();
         $notification = array(
@@ -369,16 +235,5 @@ class ProductController extends Controller
         Artisan::call('cache:clear');
 
         return redirect(route('products.index'))->with($notification);
-=======
-    //   $this->authorize('delete_products', 'App\Product');
-      Product::where('id',$id)->delete();
-      $notification = array(
-      'message' => 'User deleted successfully',
-      'alert-type' => 'success'
-      );
-      Artisan::call('cache:clear');
-
-      return redirect(route('products.index'))->with($notification);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

@@ -23,11 +23,7 @@ class Company extends Model
         'image',
         'telephone',
         'manager',
-<<<<<<< HEAD
         'url',
-=======
-        'website',
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         'area',
         'afm',
         'email',
@@ -37,7 +33,6 @@ class Company extends Model
     ];
 
 
-<<<<<<< HEAD
     /**
      * user
      *
@@ -47,12 +42,6 @@ class Company extends Model
     {
         return $this->belongsTo(User::class);
     }
-=======
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
     public function category()
     {

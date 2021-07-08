@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 
-<<<<<<< HEAD
 class Company22Controller extends Controller
-=======
-class CompanyController extends Controller
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 {
     public function __construct()
     {

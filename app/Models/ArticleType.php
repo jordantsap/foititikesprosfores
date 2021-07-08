@@ -9,7 +9,6 @@ class ArticleType extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
     // public function getRouteKeyName()
     // {
     //     return 'slug';
@@ -23,8 +22,6 @@ class ArticleType extends Model
         'featured',
     ];
 
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     public function articles()
     {
         return $this->hasMany(Article::class);

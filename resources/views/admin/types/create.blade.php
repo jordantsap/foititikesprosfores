@@ -20,26 +20,15 @@
                     {{ csrf_field() }}
                     <div class="box-body container">
                         <div class="col-sm-12">
-<<<<<<< HEAD
                             <div class="col-sm-6 form-group {{ $errors->has('title') ? ' has-error' : '' }}">
-=======
-                            <div class="col-sm-6 form-group">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="title">Type title</label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                                     placeholder="Type Title" required>
                             </div>
-<<<<<<< HEAD
                             <div class="col-sm-6 form-group {{ $errors->has('image') ? ' has-error' : '' }}">
                                 <label for="image">Image</label>
                                 {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
                                 <img id="image" width="100" />
-=======
-                            <div class="col-sm-6 form-group">
-                                <label for="image">Image</label>
-                                {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
-                                <img id="image" alt="your image" width="100" height="100" />
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>
@@ -51,7 +40,6 @@
                                     </span>
                                 @endif
                             </div>
-<<<<<<< HEAD
                             <div class="col-6">
                                 <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                                     <label for="category_id">Κατηγορία Προϊόντος</label>
@@ -76,8 +64,6 @@
                             </div>
 
 
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                         {{-- </div>
 
                         <div class="col-xs-12"> --}}

@@ -24,11 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         // 'active',
         // 'title',
         // 'slug',
-<<<<<<< HEAD
         'company_id',
-=======
-        // 'category_id',
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         // 'image',
         // 'telephone',
         // 'manager',
@@ -58,7 +54,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Category::class);
     }
 
-<<<<<<< HEAD
     public function company()
     {
         return $this->hasOne(Company::class);
@@ -72,13 +67,6 @@ class User extends Authenticatable implements MustVerifyEmail
     //     return $this->hasMany(Product::class);
     // }
 
-=======
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     public function scopeCompany($query)
     {
         // return $query->hasAnyRole('Partner');

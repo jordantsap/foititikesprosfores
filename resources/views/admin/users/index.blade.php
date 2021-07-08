@@ -21,15 +21,9 @@
                 <thead>
                 <tr>
                   <th>id</th>
-<<<<<<< HEAD
                   <th>Role</th>
                   <th>Active</th>
                   <th>Username</th>
-=======
-                  <th>Roles</th>
-                  <th>Active</th>
-                  <th>Name</th>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                   <th>Email</th>
                   <th>Created</th>
                   <th>Verified</th>
@@ -48,11 +42,7 @@
                       @endforeach
                     </td>
                     <td>{{$user->active?"yes":'no'}}</td>
-<<<<<<< HEAD
                     <td>{{Str::limit($user->username,10)}}</td>
-=======
-                    <td>{{Str::limit($user->name,10)}}</td>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                     <td>{{Str::limit($user->email,10)}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->email_verified_at}}</td>
@@ -70,20 +60,12 @@
                 <tfoot>
                   <tr>
                     <th>id</th>
-<<<<<<< HEAD
                   <th>Role</th>
                   <th>Active</th>
                   <th>Username</th>
                   <th>Email</th>
                   <th>Created</th>
                   <th>Verified</th>
-=======
-                    <th>Active</th>
-                    <th>Created at</th>
-                    <th>Verified</th>
-                    <th>Name</th>
-                    <th>Email</th>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                     {{-- @can ('view_users','update_users', App\User::class) --}}
                       <th>Actions</th>
                     {{-- @endcan --}}

@@ -28,15 +28,9 @@ class CompanyPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-<<<<<<< HEAD
     public function create(User $user, Company $company)
     {
         // return $user->id === $company->user_id;
-=======
-    public function create(User $user)
-    {
-        //
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**

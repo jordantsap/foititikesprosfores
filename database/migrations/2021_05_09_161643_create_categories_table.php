@@ -17,11 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-<<<<<<< HEAD
             $table->string('image')->nullable();
-=======
-            $table->string('image');
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
             $table->foreignId('field_id')->nullable();
             $table->boolean('featured')->default(0);
             $table->timestamps();

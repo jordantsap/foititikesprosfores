@@ -6,15 +6,11 @@ use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
 use App\Models\Category;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-=======
-use Illuminate\Support\Facades\Artisan;
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
 class TypeController extends Controller
 {
@@ -37,12 +33,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         $categories = Category::all();
         return view('admin.types.create', compact('categories'));
-=======
-        return view('admin.types.create');//, compact('types'));
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -53,7 +45,6 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         // $this->authorize('update_categories', 'App\Models\Categories');
         $this->validate($request, [
             'title' => 'required|max:50|unique:categories',
@@ -99,26 +90,6 @@ class TypeController extends Controller
         return view('admin.types.type', compact('type'));
 
     }
-=======
-        //
-        Artisan::call('cache:clear');
-    }
-
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\Models\Type  $type
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(Type $type)
-    // {
-    //     $type = Type::with('products')->where('id', $type->id)->firstOrFail();
-
-    //     return view('products.type', compact('type'));
-
-    // // return view('companies.show', compact('company'));
-    // }
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
     /**
      * Show the form for editing the specified resource.
@@ -126,17 +97,11 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function edit($id)
     {
         $type = Type::find($id);
         $categories = Category::all();
         return view('admin.types.edit', compact('type', 'categories'));
-=======
-    public function edit(Type $type)
-    {
-        //
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -146,7 +111,6 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function update(Request $request, $id)
     {
         // $this->authorize('update_subtypes', 'App\Models\SubType');
@@ -184,12 +148,6 @@ class TypeController extends Controller
         );
         Artisan::call('cache:clear');
         return redirect(route('types.index'))->with($notification);
-=======
-    public function update(Request $request, Type $type)
-    {
-        //
-        Artisan::call('cache:clear');
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     /**
@@ -198,7 +156,6 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function destroy($id)
     {
          //   $this->authorize('delete_subtypes', 'App\Models\SubType');
@@ -210,10 +167,5 @@ class TypeController extends Controller
       Artisan::call('cache:clear');
 
       return redirect(route('types.index'))->with($notification);
-=======
-    public function destroy(Type $type)
-    {
-        //
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

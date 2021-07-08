@@ -4,7 +4,6 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active"><a href="{{ route('dashboard') }}">
-<<<<<<< HEAD
                     <i class="fas fa-tachometer-alt"></i> :<span>{{ Auth::user()->username }} <br> Ρόλοι
                         {{ Auth::user()->getRoleNames() }} </span></a>
             </li>
@@ -112,55 +111,6 @@
                 </a>
             </li> --}}
 
-=======
-                    <i class="fas fa-tachometer-alt"></i> :<span>{{ Auth::user()->username  }} <br> Ρόλοι {{Auth::user()->getRoleNames()}} </span></a>
-            </li>
-            @hasanyrole('Super-Admin|Admin')
-            <li><a href="{{ route('roles.index') }}">
-                    <i class="fas fa-users-cog"></i> <span>Ρόλοι</span></a>
-            </li>
-
-            <li><a href="{{ route('permissions.index') }}">
-                    <i class="fas fa-user-plus"></i> <span>Δυνατότητες</span></a></li>
-
-            <li><a href="{{ route('users.index') }}">
-                    <i class="fas fa-user"></i> <span>Χρήστες</span></a></li>
-            @endhasanyrole
-            @hasanyrole('Super-Admin|Admin|Blogger')
-            <li><a href="{{ route('categories.index') }}">
-                    <i class="fas fas fa-shopping-cart"></i> <span>Κύριες κατηγορίες</span></a>
-            </li>
-
-            <li><a href="{{ route('types.index') }}">
-                    <i class="fas fas fa-shopping-bag"></i> <span>Ενδιάμεσες κατηγορίες</span></a>
-            </li>
-
-            <li><a href="{{ route('subtypes.index') }}">
-                    <i class="fas fas fa-shopping-bag"></i> <span>Τελικές κατηγορίες</span></a>
-            </li>
-
-            <li><a href="{{ route('articles.index') }}">
-                    <i class="fas fa-newspaper"></i> <span>Άρθρα</span></a>
-            </li>
-
-            <li><a href="{{ route('companies.index') }}">
-                    <i class="fas fa-shopping-bag"></i> <span>Καταστήματα</span></a></li>
-
-            <li><a href="{{ route('brands.index') }}"><i class="fas fa-book"></i> <span>Μάρκες</span></a></li>
-
-            <li><a href="{{ route('products.index') }}">
-                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span>Προϊόντα</span></a></li>
-            {{-- @can('view_products', App\Models\Product::class) --}}
-            {{-- <li><a href="{{ route('fields.index') }}">
-                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span>Πεδία Προιόντων</span></a></li> --}}
-            {{-- @endcan --}}
-            @endhasanyrole
-            @hasrole('Partner')
-            <li><a href="{{ route('companies.create') }}">
-                <i class="fas fa-shopping-bag" aria-hidden="true"></i> <span>Νέο Κατάστημα</span></a></li>
-                <li><a href="{{ route('products.create') }}">
-                    <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span>Δημιουργία Προϊόντος</span></a></li>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
             @endhasrole
 
             {{-- @include('auth.sidebar') --}}

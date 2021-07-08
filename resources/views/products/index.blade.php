@@ -23,11 +23,7 @@
                             <div class="col-sm-12 col-md-3 col-lg-3 text-center">
                                 <a href="{{ route('product', $product->slug) }}">
                                     <img class="img-responsive rounded" style="width:100%;height:150px;"
-<<<<<<< HEAD
                                         src="{{ asset('images/products/'.$product->image) }}" alt="{{ $product->title }}">
-=======
-                                        src="{{ asset($product->image) }}" alt="{{ $product->title }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <h2>{{ Str::limit($product->title, 20) }}</h2>
                                 </a>
                                 <h3><b>{{ __('Κατηγορία') }}</b> <br>

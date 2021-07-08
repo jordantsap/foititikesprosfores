@@ -15,10 +15,6 @@ class ProductSeeder extends Seeder
     {
 
       \DB::table('products')->truncate();
-<<<<<<< HEAD
       $blogs = Product::factory()->count(1)->create();
-=======
-      $blogs = Product::factory()->count(10)->create();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

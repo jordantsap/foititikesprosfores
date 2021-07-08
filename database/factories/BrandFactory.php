@@ -24,10 +24,7 @@ class BrandFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'slug' => $this->faker->slug(),
-<<<<<<< HEAD
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         ];
     }
 }

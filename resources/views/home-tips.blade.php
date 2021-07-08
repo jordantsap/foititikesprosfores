@@ -10,11 +10,7 @@
             @foreach ($hometips as $tip)
             <div class="home-tips-item">
                 <a href="{{ route('article', $tip->slug)}}">
-<<<<<<< HEAD
                     <img class="" width="100%" height="250px" src="{{ 'images/articles/'.$tip->image }}" alt="">
-=======
-                    <img class="" width="100%" height="250px" src="{{ $tip->image }}" alt="">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                     <h2>
                         {{ $tip->title}}
                     </h2>

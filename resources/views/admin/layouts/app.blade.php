@@ -8,15 +8,9 @@
 <div class="wrapper">
 	@include('admin.layouts.header')
 	@include('admin.layouts.sidebar')
-<<<<<<< HEAD
 	@section('content')
     @show
     @include('admin.layouts.alerts')
-=======
-  @include('admin.layouts.alerts')
-	@section('content')
-		@show
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 	@include('admin.layouts.footer')
 <script src="{{ asset('admin/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 </div>
@@ -62,11 +56,7 @@ switch(type){
 <script>
 var url = window.location;
 // for sidebar menu but not for treeview submenu
-<<<<<<< HEAD
 $('ul.sidebar-menu li a').filter(function() {
-=======
-$('ul.sidebar-menu a').filter(function() {
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     return this.href == url;
 }).parent().siblings().removeClass('active').end().addClass('active');
 {{--for treeview which is like a submenu--}}

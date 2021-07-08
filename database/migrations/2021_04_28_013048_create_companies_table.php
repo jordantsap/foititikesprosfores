@@ -16,7 +16,6 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-<<<<<<< HEAD
             $table->string('slug');
             $table->string('telephone')->nullable();
             $table->foreignId('user_id')->nullable();
@@ -30,21 +29,6 @@ class CreateCompaniesTable extends Migration
             $table->boolean('active')->default(0)->nullable();
             $table->foreignId('category_id');
             $table->rememberToken();
-=======
-             $table->string('slug');
-             $table->string('telephone')->nullable();
-             $table->foreignId('user_id')->nullable();
-             $table->string('manager')->nullable();
-             $table->string('website')->nullable();
-             $table->string('afm')->nullable();
-             $table->string('area')->nullable();
-             $table->string('email')->nullable();
-             $table->string('password');
-             $table->string('image')->nullable();
-             $table->boolean('active')->default(0)->nullable();
-             $table->foreignId('category_id');
-             $table->rememberToken();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
             $table->timestamps();
         });
     }

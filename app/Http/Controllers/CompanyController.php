@@ -5,20 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\User;
-<<<<<<< HEAD
 use App\Notifications\NewUserNotification;
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Notification;
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -34,7 +28,6 @@ class CompanyController extends Controller
     {
         $this->validate($request, array(
             'title' => 'required|min:5|max:100',
-<<<<<<< HEAD
             'manager' => 'required',
             'slug' => 'unique:companies,title',
             'active' => 'nullable',
@@ -48,23 +41,11 @@ class CompanyController extends Controller
             'telephone' => 'required',
             'area' => 'required',
             'url' => 'required',
-=======
-            'slug' => 'unique:companies,title',
-            'active' => 'nullable',
-            'email' => 'required|email',
-            'password' => 'required|string|min:6',
-            'category_id' => 'required',
-            'manager' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'telephone' => 'required',
-            'website' => '',
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         ));
 
         $company = new Company();
 
         $company->title = $request->title;
-<<<<<<< HEAD
         $company->slug = Str::slug($request->title, '-');
         // $company->active = $request->active;
         $company->category_id = $request->category_id;
@@ -77,27 +58,6 @@ class CompanyController extends Controller
         $company->url = $request->url;
         $company->afm = $request->afm;
         // $company->image = $request->image;
-=======
-        $company->active = $request->active;
-        $company->slug = Str::slug($request->title, '-');
-        $company->category_id = $request->category_id;
-
-        $user = User::create([
-            'username' => $request->title ?? null,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        $user->assignRole('Partner');
-
-        event(new Registered($user)); // https://dev.to/jeroenvanrensen/manual-auth-in-laravel-email-verification-1g8c
-
-        $company->email = $request->email;
-        $company->password = Hash::make($request->password);
-        $company->manager = $request->manager;
-        $company->telephone = $request->telephone;
-        $company->website = $request->website;
-        $company->image = $request->image;
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -105,7 +65,6 @@ class CompanyController extends Controller
             $location = public_path("images/companies/" . $filename);
             Image::make($image)->resize(800, 400)->save($location);
             $company->image = $filename;
-<<<<<<< HEAD
         }
 
         $user = User::create([
@@ -141,20 +100,6 @@ class CompanyController extends Controller
         // Cache::flush();
         Cache::forget('companies');
 
-=======
-          }
-
-        // Artisan::call('cache:clear');
-        // Cache::flush();
-        Cache::forget('companies');
-
-        $company->save();
-
-        $notification = array(
-            'message' => 'Επιτυχής Δημιουργία της Επιχείρησής σας',
-            'alert-type' => 'info'
-        );
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         return redirect(url('/'))->with($notification);
     }
 

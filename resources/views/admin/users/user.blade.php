@@ -29,7 +29,6 @@
           <input type="email" value="{{$user->email}}" class="form-control" id="email" disabled>
         </div>
 
-<<<<<<< HEAD
         {{-- @if ($user->hasRole('Partner'))
         <div class="form-group">
           <label for="roles">User Roles</label>
@@ -39,25 +38,6 @@
             No roles for this user
           @endif
         </div> --}}
-=======
-        <div class="form-group">
-          <label for="tel">Τηλέφωνο</label>
-          <input type="text" value="{{$user->telephone}}" class="form-control" id="telephone" disabled>
-        </div>
-
-        <div class="form-group">
-          <label for="roles">User Roles</label>
-          @foreach ($user->roles->chunk(4) as $chunk)
-            <div class="row">
-              @foreach ($chunk as $role)
-                <div class="col-xs-3">
-                  {{ $role->name }}
-                </div>
-              @endforeach
-            </div>
-          @endforeach
-        </div>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
       </div>
 

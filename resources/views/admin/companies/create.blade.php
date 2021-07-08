@@ -17,7 +17,6 @@
                     @csrf
                     <div class="box-body">
                         <div class="row">
-<<<<<<< HEAD
                             <div class="col-sm-8 form-group">
                                 <label for="title">Title</label>
                                 <input type="text" value="{{ old('title') }}" name="title" class="form-control" id="title"
@@ -27,17 +26,6 @@
                                 <label for="telephone">Τηλέφωνο</label>
                                 <input type="text" value="{{ old('title') }}" name="telephone" class="form-control"
                                     id="telephone" placeholder="Τηλέφωνο Επιχείρησης" required>
-=======
-                            <div class="col-xs-8 form-group">
-                                <label for="title">Title</label>
-                                <input type="text" value="{{ old('title') }}" name="title" class="form-control" id="title"
-                                    placeholder="Enter Title">
-                            </div>
-                            <div class="col-xs-4 form-group">
-                                <label for="telephone">Τηλέφωνο</label>
-                                <input type="text" value="{{ old('title') }}" name="telephone" class="form-control"
-                                    id="telephone" placeholder="Τηλέφωνο Επιχείρησης">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             </div>
                         </div>
 
@@ -70,7 +58,6 @@
                         </div> --}}
 
                         <div class="row">
-<<<<<<< HEAD
                             @hasanyrole('Super-Admin|Admin|Blogger')
                             <div class="col-sm-2">
                                 <div class="form-group">
@@ -81,24 +68,12 @@
                             </div>
                             @endhasanyrole
                             <div class="col-sm-3 form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-=======
-                            <div class="col-xs-2 form-group">
-                                <label for="active"> Active
-                                    &nbsp<input type="checkbox" name="active" value="1" class="minimal">
-                                </label>
-                            </div>
-                            <div class="col-xs-3 form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="category_id">Κατηγορία Καταστήματος</label>
                                 @if ($errors->has('category_id'))
                                     <strong class="text-danger">{{ $errors->first('category_id') }}</strong>
                                 @endif
                                 <div class="">
-<<<<<<< HEAD
                                     <select id="category_id" value="{{ old('category_id') }}" name="category_id" class="form-control" required>
-=======
-                                    <select id="category_id" value="{{ old('category_id') }}" name="category_id" class="form-control">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                         <option value="{{ old('category_id') }}">Επιλέξτε</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }} {{ old('category_id') }}"
@@ -107,7 +82,6 @@
                                     </select>
                                 </div>
                             </div>
-<<<<<<< HEAD
                             <div class="col-sm-2 form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
                                 <label for="user_id">Χρήστης</label>
                                 @if ($errors->has('user_id'))
@@ -124,26 +98,18 @@
                                 </div>
                             </div>
                             <div class="col-sm-3 form-group{{ $errors->has('manager') ? ' has-error' : '' }}">
-=======
-                            <div class="col-xs-7 form-group{{ $errors->has('manager') ? ' has-error' : '' }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="manager">Όνομα Υπευθύνου</label>
                                 @if ($errors->has('manager'))
                                     <strong class="text-danger">{{ $errors->first('manager') }}</strong>
                                 @endif
                                 <div class="input-group">
                                     <input type="text" class="form-control" value="{{ old('manager') }}" id="manager"
-<<<<<<< HEAD
                                         name="manager" placeholder="Manager Name" required>
-=======
-                                        name="manager" placeholder="Manager Name">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-user"></span>
                                     </span>
                                 </div>
                             </div>
-<<<<<<< HEAD
 
                         </div>
 
@@ -184,26 +150,10 @@
                                         </span>
                                     </div>
                                 </div>
-=======
-                        </div>
-
-                        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                            <label for="image">Image</label>
-                            @if ($errors->has('image'))
-                                <strong class="text-danger">{{ $errors->first('image') }}</strong>
-                            @endif
-                            <div class="input-group">
-                                @if (old('image'))
-                                    <img src="{{ old('image') }}" alt="">
-                                @endif
-                                <input type="file" name="image" value="{{ old('image') }}">
-                                <p class="help-block">Help text here.</p>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             </div>
                         </div>
 
                         <div class="row">
-<<<<<<< HEAD
                             <div class="col-sm-6 form-group{{ $errors->has('url') ? ' has-error' : '' }}">
                                 <label for="url">Ιστοσελίδα</label>
                                 @if ($errors->has('url'))
@@ -212,38 +162,20 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" value="{{ old('url') }}" id="url"
                                         name="url" placeholder="url">
-=======
-                            <div class="col-xs-6 form-group{{ $errors->has('website') ? ' has-error' : '' }}">
-                                <label for="website">Ιστοσελίδα</label>
-                                @if ($errors->has('website'))
-                                    <strong class="text-danger">{{ $errors->first('website') }}</strong>
-                                @endif
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="{{ old('website') }}" id="website"
-                                        name="website" placeholder="Website">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-globe"></span>
                                     </span>
                                 </div>
                             </div>
 
-<<<<<<< HEAD
                             <div class="col-sm-6 form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-=======
-                            <div class="col-xs-6 form-group{{ $errors->has('email') ? ' has-error' : '' }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="email">E-Mail</label>
                                 @if ($errors->has('email'))
                                     <strong class="text-danger">{{ $errors->first('email') }}</strong>
                                 @endif
                                 <div class="input-group">
                                     <input type="text" value="{{ old('email') }}" class="form-control" id="email"
-<<<<<<< HEAD
                                         name="email" placeholder="E-Mail" required>
-=======
-                                        name="email" placeholder="E-Mail">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-envelope"></span>
                                     </span>
@@ -251,24 +183,13 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-=======
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="textarea" name="description" placeholder="Place some text here"
-                                style="width: 100%; height:150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('description') }}</textarea>
-                        </div>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                     </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
-<<<<<<< HEAD
                         -
                         <a href="javascript:history.back()" class="btn btn-warning">Back</a>
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                     </div>
                 </form>
             </div>

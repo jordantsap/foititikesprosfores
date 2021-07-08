@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
 
         app()['cache']->forget('spatie.permission.cache');
 
-<<<<<<< HEAD
         $this->call(PermissionTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(CategorySeeder::class);
@@ -34,19 +33,5 @@ class DatabaseSeeder extends Seeder
         $this->call(CompanySeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(BrandSeeder::class);
-=======
-          $this->call(PermissionTableSeeder::class);
-          $this->call(RoleTableSeeder::class);
-          $this->call(CategorySeeder::class);
-          $this->call(TypeSeeder::class);
-          $this->call(SubTypeSeeder::class);
-          $this->call(ArticleTypeSeeder::class);
-          $this->call(ArticleSeeder::class);
-          $this->call(ProductSeeder::class);
-          $this->call(BrandSeeder::class);
-          $this->call(UserSeeder::class);
-          $this->call(CompanySeeder::class);
-          //   $this->call(FieldSeeder::class);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 }

@@ -17,15 +17,9 @@ class CreateSubTypesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-<<<<<<< HEAD
             $table->string('image')->nullable();
             $table->foreignId('type_id');
             $table->timestamps();
-=======
-            $table->string('image');
-            $table->foreignId('type_id');
-            // $table->timestamps();
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         });
     }
 

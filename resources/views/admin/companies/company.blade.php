@@ -8,13 +8,8 @@
             <h1>
                 Company : {{ $company->title }}
                 {{-- @can('update_companies', App\Company::class) --}}
-<<<<<<< HEAD
                 <small><a class="btn btn-primary" href="{{ route('companies.edit', $company->id) }}">Edit</a> - <a
                         class="btn btn-warning" href="javascript:history.back()">Go Back</a></small>
-=======
-                    <small><a class="btn btn-primary" href="{{ route('companies.edit', $company->id) }}">Edit</a> - <a
-                            class="btn btn-warning" href="javascript:history.back()">Go Back</a></small>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                 {{-- @endcan --}}
             </h1>
         </section>
@@ -26,7 +21,6 @@
             <div class="box">
                 <div class="box-body">
                     <div class="row">
-<<<<<<< HEAD
                         <div class="col-sm-8 form-group">
                             <label for="title">Επωνυμία</label>
                             <input type="text" class="form-control" id="title" placeholder="{{ $company->title }}"
@@ -36,22 +30,10 @@
                             <label for="telephone">Τηλέφωνο</label>
                             <input type="text" class="form-control" id="telephone" placeholder="{{ $company->telephone }}"
                                 value="{{ $company->telephone }}" readonly>
-=======
-                        <div class="col-xs-8 form-group">
-                            <label for="title">Επωνυμία</label>
-                            <input type="text" class="form-control" id="title" placeholder="{{ $company->title }}"
-                                value="{{ $company->title }}" disabled>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                            <label for="telephone">Τηλέφωνο</label>
-                            <input type="text" class="form-control" id="telephone" placeholder="{{ $company->telephone }}"
-                                value="{{ $company->telephone }}" disabled>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                         </div>
                     </div>
 
                     <div class="row">
-<<<<<<< HEAD
                         @hasanyrole('Super-Admin|Admin|Blogger')
                         <div class="col-sm-1">
                             <div class="form-group">
@@ -70,28 +52,12 @@
                         <div class="form-group col-sm-3">
                             <label for="category_id">Category</label>
                             <div class="form-control" name="category_id" id="category_id" readonly>
-=======
-                        <div class="col-xs-2 form-group">
-                            <label for="active"> Active
-                                <input type="checkbox" name="active" value="1" @if ($company->active == 1) {{ 'checked' }} @endif disabled>
-                            </label>
-                        </div>
-                        <div class="col-xs-6 form-group">
-                            <label for="title">Όνομα Υπευθύνου</label>
-                            <input type="text" class="form-control" id="manager" placeholder="{{ $company->manager }}"
-                                value="{{ $company->manager }}" disabled>
-                        </div>
-                        <div class="form-group col-xs-4">
-                            <label for="category_id">Category</label>
-                            <div class="form-control" name="category_id" id="category_id" disabled>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 @if (!empty($company->category))
                                     {{ $company->category->title }}
                                 @else Null
                                 @endif
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div class="form-group col-sm-2">
                             <label for="user_id">Χρήστης</label>
                             <div class="form-control" name="user_id" id="user_id" readonly>
@@ -118,25 +84,6 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" value="{{ $company->url }}" id="url"
                                         name="url" placeholder="url" readonly>
-=======
-                    </div>
-
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <div class="input-group">
-                            <img width="200" height="200" src="{{ asset('images/companies/' . $company->image) }}"
-                                alt="{{ $company->title }}" disabled>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="form-group">
-                                <label for="website">Ιστοσελίδα</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="{{ $company->website }}" id="website"
-                                        name="website" placeholder="Website" disabled>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-globe"></span>
                                     </span>
@@ -144,27 +91,18 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                         <div class="col-sm-4">
-=======
-                        <div class="col-xs-6">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             <div class="form-group">
                                 <label for="email">E-Mail</label>
                                 <div class="input-group">
                                     <input type="text" value="{{ $company->email }}" class="form-control" id="email"
-<<<<<<< HEAD
                                         name="email" placeholder="E-Mail" readonly>
-=======
-                                        name="email" placeholder="E-Mail" disabled>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-envelope"></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
                     </div>
 
                     <div class="row">
@@ -255,10 +193,6 @@
                         <p class="text-center">No published products</p>
                     @endif
 
-=======
-
-                    </div>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
                 </div>
                 <!-- /.box-body -->

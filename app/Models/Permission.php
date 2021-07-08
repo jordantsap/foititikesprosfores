@@ -43,14 +43,11 @@ class Permission extends \Spatie\Permission\Models\Permission{
       'update_products',
       'delete_products',
 
-<<<<<<< HEAD
       'view_brands',
       'create_brands',
       'update_brands',
       'delete_brands',
 
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
       'company_management',
       'product_management',
       'order_management',

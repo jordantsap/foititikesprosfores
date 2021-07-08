@@ -22,11 +22,7 @@
 
                             <div class="home-blog-posts-item">
                                 <a href="{{ route('article', $article->slug) }}">
-<<<<<<< HEAD
                                     <img class="" width="100%" height="250px" src="{{ asset('images/articles/'.$article->image) }}"
-=======
-                                    <img class="" width="100%" height="250px" src="{{ $article->image }}"
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                         alt="{{ $article->title }}">
                                     <h2>{{ $article->title }}</h2>
                                 </a>

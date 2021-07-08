@@ -56,11 +56,7 @@
             @if ($companies)
                 @foreach ($companies as $company)
                     <li class="list-group-item text-center">
-<<<<<<< HEAD
                         <a href="{{ route('company.show', $company->slug) }}" class="align-middle">
-=======
-                        <a href="{{ route('company', $company->slug) }}" class="align-middle">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             {{ $company->title }}
                         </a>
                     </li>

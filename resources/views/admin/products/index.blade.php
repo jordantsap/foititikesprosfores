@@ -6,15 +6,9 @@
     <section class="content-header">
       <h1>
         Products
-<<<<<<< HEAD
         @can ('create_products', App\Models\Product::class)
           <small><a class="btn btn-primary" href="{{route('products.create')}}">Add New</a></small>
         @endcan
-=======
-        {{-- @can ('create_products', App\Product::class) --}}
-          <small><a class="btn btn-primary" href="{{route('products.create')}}">Add New</a></small>
-        {{-- @endcan --}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
       </h1>
     </section>
     <!-- Main content -->
@@ -27,7 +21,6 @@
                 <thead>
                   <tr>
                     <th>id</th>
-<<<<<<< HEAD
                     @hasanyrole('Super-Admin|Admin|Blogger')
                       <th>Χρήστης</th>
                       <th>Active</th>
@@ -41,17 +34,6 @@
                     @hasanyrole('Super-Admin|Admin|Blogger')
                       <th>Actions</th>
                     @endhasanyrole
-=======
-                    <th>Title</th>
-                    <th>Active</th>
-                    <th>Category</th>
-                    <th>Company</th>
-                    <th>Logo</th>
-                    <th>Description</th>
-                    @can ('view_products','update_products', App\Product::class)
-                      <th>Actions</th>
-                    @endcan
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                   </tr>
                 </thead>
                 @if (count($products) > 0)
@@ -59,17 +41,12 @@
                     <tbody>
                     <tr>
                       <td>{{$product->id}}</td>
-<<<<<<< HEAD
                       @hasanyrole('Super-Admin|Admin|Blogger')
                       <th> {{ $product->user ? $product->user->username : 'No user' }}</th>
                       <td>{{$product->active ? 'yes' : 'no'}}</td>
                       <td>{{$product->slider ? 'yes' : 'no'}}</td>
                     @endhasanyrole
                       <td>{{$product->title}}</td>
-=======
-                      <td>{{$product->title}}</td>
-                      <td>{{$product->active?"yes":'no'}}</td>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                       <td>
                         @if( ! empty($product->category)){{ $product->category->title }}
                         @else None
@@ -80,7 +57,6 @@
                         @else None
                         @endif
                       </td>
-<<<<<<< HEAD
                       <td><img width="150px" height="150px" src="{{asset('images/products/'.$product->image)}}" alt="{{$product->title}}"></td>
                       <td>{{Str::limit($product->description, 20)}}</td>
                       <td>
@@ -89,17 +65,6 @@
 
                           <a class="btn btn-primary" href="{{route('products.show', $product->id)}}">View</a>
                         @endhasanyrole
-=======
-                      <td><img width="150px" height="150px" src="{{asset('images/products/'.$product->logo)}}" alt="{{$product->title}}"></td>
-                      <td>{{Str::limit($product->description, 20)}}</td>
-                      <td>
-                        @can ('update_products', App\Product::class)
-                          <a class="btn btn-primary" href="{{route('products.edit', $product->id)}}">Edit</a> -
-                        @endcan
-                        @can ('view_products', App\Product::class)
-                          <a class="btn btn-primary" href="{{route('products.show', $product->id)}}">View</a>
-                        @endcan
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                       </td>
                     </tr>
                     </tbody>
@@ -110,7 +75,6 @@
                 <tfoot>
                   <tr>
                     <th>id</th>
-<<<<<<< HEAD
                     @hasanyrole('Super-Admin|Admin|Blogger')
                       <th>Actions</th>
                       <th>Active</th>
@@ -127,19 +91,6 @@
                   </tr>
                 </tfoot>
 
-=======
-                    <th>Title</th>
-                    <th>Active</th>
-                    <th>Category</th>
-                    <th>Company</th>
-                    <th>Logo</th>
-                    <th>Description</th>
-                    {{-- @can ('view_products','update_products', App\Product::class) --}}
-                      <th>Actions</th>
-                    {{-- @endcan --}}
-                  </tr>
-                </tfoot>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
               </table>
               {{$products->links()}}
             </div>

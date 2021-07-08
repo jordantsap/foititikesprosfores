@@ -23,11 +23,7 @@
     <title>{{ config('app.name') }}</title>
 </head>
 
-<<<<<<< HEAD
 <body class="c-app" id="app">
-=======
-<body class="c-app">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
     <div class="c-wrapper c-fixed-components">
 

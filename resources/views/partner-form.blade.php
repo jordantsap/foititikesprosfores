@@ -85,7 +85,6 @@
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="π.χ. info@foititikesprosfores.gr" value="{{ old('email') }}" required>
                             </div>
-<<<<<<< HEAD
                             <div class="col-6{{ $errors->has('url') ? ' has-error' : '' }}">
                                 <label for="url" class="form-label">E-Shop Url</label>
                                 @if ($errors->has('url'))
@@ -95,8 +94,6 @@
                                     placeholder="π.χ. http(s)://foititikesprosfores.gr" value="{{ old('url') }}"
                                     required>
                             </div>
-=======
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
                             <div class="col-6{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="form-label">Κωδικός εισόδου</label>
@@ -105,7 +102,6 @@
                                 @endif
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-<<<<<<< HEAD
                             <div class="col-6">
                                 <label for="password-confirm" class="form-label">{{ __('Επιβεβαίωση κωδικού') }}</label>
 
@@ -115,20 +111,6 @@
                             </div>
 
                             <div class="col-4{{ $errors->has('telephone') ? ' has-error' : '' }}">
-=======
-
-                            <div class="col-6{{ $errors->has('url') ? ' has-error' : '' }}">
-                                <label for="url" class="form-label">E-Shop Url</label>
-                                @if ($errors->has('url'))
-                                    <strong class="text-danger">{{ $errors->first('url') }}</strong>
-                                @endif
-                                <input type="text" class="form-control" name="url" id="url"
-                                    placeholder="π.χ. http(s)://foititikesprosfores.gr" value="{{ old('url') }}"
-                                    required>
-                            </div>
-
-                            <div class="col-6{{ $errors->has('telephone') ? ' has-error' : '' }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="phone" class="form-label">Τηλέφωνο Επικοινωνίας</label>
                                 @if ($errors->has('telephone'))
                                     <strong class="text-danger">{{ $errors->first('telephone') }}</strong>
@@ -137,11 +119,7 @@
                                     placeholder="π.χ. 2102345675" value="{{ old('telephone') }}" required>
                             </div>
 
-<<<<<<< HEAD
                             <div class="col-4{{ $errors->has('afm') ? ' has-error' : '' }}">
-=======
-                            <div class="col-6{{ $errors->has('afm') ? ' has-error' : '' }}">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 <label for="afm" class="form-label">ΑΦΜ Επιχείρησης</label>
                                 @if ($errors->has('afm'))
                                     <strong class="text-danger">{{ $errors->first('afm') }}</strong>
@@ -150,7 +128,6 @@
                                     value="{{ old('afm') }}" required>
                             </div>
 
-<<<<<<< HEAD
                             <div class="col-4 {{ $errors->has('category_id') ? ' has-error' : '' }}">
                                 <label for="category_id" class="form-label">Κατηγορία Καταστήματος</label>
                                 @if ($errors->has('category_id'))
@@ -159,16 +136,6 @@
                                 <select id="category_id" value="{{ old('category_id') }}" name="category_id"
                                     class="form-control" required>
                                     <option value="">Κατηγορία Καταστήματος</option>
-=======
-                            <div class="col-6{{ $errors->has('category_id') ? ' has-error' : '' }}">
-                                <label for="category_id" class="form-label">Κατηγορία Καταστήματος</label>
-                                @if ($errors->has('title'))
-                                    <strong class="text-danger">{{ $errors->first('category_id') }}</strong>
-                                @endif
-                                <select id="category_id" value="{{ old('category_id') }}" name="category_id"
-                                    class="form-control">
-                                    <option>Κατηγορία Καταστήματος</option>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
@@ -177,7 +144,6 @@
                             <div class="col-12">
                                 <label for="image">Image</label>
                                 <div class="d-flex justify-content-end">
-<<<<<<< HEAD
                                     <img id="image" width="50%" max-height="200px">
                                 </div>
                                 <div class="d-flex justify-content-start">
@@ -195,14 +161,6 @@
                                         }
                                     }
                                 </script> --}}
-=======
-                                    <img id="image" alt="Προεπισκόπηση" width="50%" />
-                                </div>
-                                <div class="d-flex justify-content-start">
-                                <input type="file" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
-                                    id="image" name="image" value="{{ old('image') }}" required>
-                                </div>
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                                 @if ($errors->has('image'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('image') }}</strong>

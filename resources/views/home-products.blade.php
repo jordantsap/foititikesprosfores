@@ -8,11 +8,7 @@
             @foreach ($homeproducts as $product)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="hovereffect">
-<<<<<<< HEAD
                     <img class="img-responsive" width="100%" height="200px" src="{{ asset('images/products/'.$product->image) }}" alt="">
-=======
-                    <img class="img-responsive" width="100%" height="200px" src="{{ $product->image }}" alt="">
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
 
                     <div class="overlay">
                         <h2>{{ $product->title}}</h2>

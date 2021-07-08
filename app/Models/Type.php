@@ -35,11 +35,7 @@ class Type extends Model // level 2 of category relations
 
     public function products()
     {
-<<<<<<< HEAD
         return $this->hasManyThrough(Product::class, Category::class);
-=======
-        return $this->hasMany(Product::class);
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
     }
 
     public function subtypes()

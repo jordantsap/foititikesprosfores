@@ -4,11 +4,7 @@
 @section('meta_keywords', $product->meta_keywords . ' ' . $product->category->title)
 
 @section('content')
-<<<<<<< HEAD
     <img width="100%" height="350px" src="{{ asset('images/products/'.$product->image) }}" title="{{ $product->title }}" class=""
-=======
-    <img width="100%" height="350px" src="{{ asset($product->image) }}" title="{{ $product->title }}" class=""
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
         alt="{{ $product->title }}">
     <div class="container">
         <div id="articles">
@@ -31,11 +27,7 @@
                         </li>
                         <li class="list-group-item bold">
                             <h2>{{ __('Χρώμα') }}
-<<<<<<< HEAD
                                 {{ $product->color->title}}
-=======
-                                {{ $product->color}}
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
                             </h2>
                         </li>
                         <li class="list-group-item bold">
