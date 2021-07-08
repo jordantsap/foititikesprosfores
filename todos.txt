@@ -1,0 +1,45 @@
+partner create product company_id db error solved
+new brand create solved
+partner afm and url solved
+company edit image bug always submitted
+
+!!!!!!!!!!!!!!!!! FIX PERMISSIONS AND/OR POLICIES!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!! TEST EVERYTHING !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+partner active,slider field remove --------test remain
+blogger actions buttons se ola ta list-----------------test remain
+
+color nor required + table dropdown + color model--------testg remain + sidebar filters -> todo
+
+all admins+blogger notification after registration εγινε η αλλαγη των μαιλ, εγινε και τεστ
+
+blogger notification edit, create --------todo testing
+delete public function implement ----------------done not tested
+user list sto blogger role ---------- egine no test
+pasword confirmation input to partner form -- done
+company verification field for admins + blogger -- done
+products in company.show in backend ----done
+customer brands color create ---------- done
+user id field in models backend/list/etc--------------done
+image προεπισκοπηση κρυφο μεχρι select σε ολα--------done
+==================================
+-||-αλλαγη εικονα σε λογοτυπο καταστηματος
+στα articles scopehomepits and other sections
+artcle_type_id allagi onomatos
+brand eikones
+vgale to sku
+======================================
+partner count companies validation sidebar create new
+sku auto random number->unique
+
+when admin create model user_id should be user list foreach
+
+
+afm form max digits
+testcases sto telos
+
+... next version...
+υποκατηγοριες κτλπ
+user()->companylist

@@ -1,0 +1,95 @@
+<<<<<<< HEAD
+=======
+Models:
+Users
+REGISTRATION
+company + user create with partner-form.blade.php
+Product Slider select
+roles administrator blogger etc
+Company hasmany products
+brand
+Article belongsTo category
+
+Offer one to many products ??
+Field belongs to many categories
+Category hasmany fields
+
+fields:
+price,
+belongsto category/type,
+width,
+height,
+image, size,
+ram,
+drive size,
+screen size,
+camera,
+O.S.
+TECHNICAL DETAILS
+belongsto brand,
+belongsto company,
+color,
+
+
+/*
+typeable
+imageable
+*/
+
+producttype
+articletype
+companytype
+
+>>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
+Mobile app????? μελλοντικα
+get-to-know events??? μελλοντικα
+Κυρια λειτουργια προσφορες για φοιτητες,
+πρόκειται για μια ιστοσελίδα σύγκρισης τιμών
+προϊόντων συγκεκριμένων καταστημάτων της ελληνικής αγοράς.
+
+user friendly και όχι αχανές + καθοδηγηση ??
+
+Εξατομίκευση με βάση τις προτιμήσεις του
+χρήστη
+Αναγνωρίζουμε τις ανάγκες του
+εκάστοτε καταναλωτή και του προτείνουμε εκείνα που ανταποκρίνονται
+στα «θέλω» του.
+favorite προσφορες = προτεινομενα
+
+ερωτηση για Οι παραπάνω άξονες επικοινωνίας
+ΚΑΙ ΑΤΑΚΕς
+
+
+Target Groups
+-Φοιτητές – Σπουδαστές
+-Μεταπτυχιακοί Φοιτητές
+-Εταιρείες και καταστήματα που δίνουν τις εκάστοτε προσφορές
+
+
+FEATURES-----------
+Είσοδος με δημιουργία λογαριασμού μέσω Email, Facebook & Instagram-
+Καρτέλα Πελάτη με πληροφορίες όπως: Στοιχεία, Πόντοι, Προηγούμενες
+Αγορές, Εξατομικευμένες Προτάσεις και Προσφορές, Αγαπημένα
+Προϊόντα)
+Newsletter/Sms για νέες προσφορές, προϊόντα, νέα συνεργαζόμενα καταστήματα κρίνεται απαραίτητη.
+
+user roles:
+admin
+blogger
+foitites
+καταστηματα
+--------------
+προσφορες
+κατηγοριες προιοντων-για φοιτητικο σπιτι κτλπ
+Αντιστοιχία ποιότητας προϊόντων και τιμής
+
+verification για καταστηματα και προσφορες???? manually
+αναγκη για επιβεβαιωση???
+
+
+αναζητηση προσφορων + φίλτρα αναζήτησης
+κέντρο εξυπηρέτησης HELP CENTER?? FAQ
+
+Ο χρήστης
+πρέπει να αντιλαμβάνεται ότι η πλατφόρμα μπορεί να του παρέχει εύκολα και γρήγορα αυτό που αναζητά. Μάλιστα, να του παρέχει τις καλύτερες δυνατές τιμές, μέσα από σύγκριση των συνεργαζόμενων καταστημάτων
+(σύγκριση προϊόντων-τιμών μεταξύ των καταστημάτων)
