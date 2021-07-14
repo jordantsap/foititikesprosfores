@@ -164,7 +164,7 @@
                                     @if ($brands)
                                     @foreach ($brands as $brand)
                                         <option value="{{ $brand->id }}"
-                                            {{ $brand->id == $product->brand->id ? 'selected' : '' }}>
+                                            {{ $product->brand && $brand->id == $product->brand->id ? 'selected' : '' }}>
                                             {{ $brand->title }}</option>
                                     @endforeach
                                     @endif

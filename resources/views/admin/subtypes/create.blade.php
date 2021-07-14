@@ -16,7 +16,7 @@
 
             <!-- Default box -->
             <div class="box">
-                <form role="form" action="{{ route('subtypes.store') }}" method="post">
+                <form role="form" action="{{ route('subtypes.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body container">
                         {{-- <div class="col-sm-12"> --}}
@@ -32,8 +32,7 @@
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>
-                                {{-- <img src="images/{{ Session::get('image') }}"> --}}
-                                <p class="help-block">Example block-level help text here.</p>
+
                                 @if ($errors->has('image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('image') }}</strong>

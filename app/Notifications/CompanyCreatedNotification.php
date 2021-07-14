@@ -7,9 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class CompanyCreatedNotification extends Notification implements ShouldQueue
+class CompanyCreatedNotification extends Notification
 {
-    use Queueable;
+    // use Queueable;
 
     public $company;
 

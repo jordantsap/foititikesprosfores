@@ -62,10 +62,10 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Get all of the products of the related company.
      */
-    // public function products()
-    // {
-    //     return $this->hasMany(Product::class);
-    // }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 
     public function scopeCompany($query)
     {

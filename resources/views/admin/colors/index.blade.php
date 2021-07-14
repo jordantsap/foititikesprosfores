@@ -23,7 +23,7 @@
                                             <th>id</th>
                                             <th>Τίτλος</th>
                                             <th>Url</th>
-                                            <th>Εικόνα</th>
+                                            {{-- <th>Εικόνα</th> --}}
                                             @hasanyrole('Super-Admin|Admin|Blogger')
                                             <th>Actions</th>
                                             @endhasanyrole
@@ -35,9 +35,10 @@
                                                 <td>{{ $color->id }}</td>
                                                 <td>{{ $color->title }}</td>
                                                 <td>{{ $color->slug }}</td>
-                                                <td><img width="150px" height="150px"
+                                                {{-- <td><img width="150px" height="150px"
                                                         src="{{ asset('images/colors/' . $color->image) }}"
-                                                        alt="{{ $color->title }}"></td>
+                                                        alt="{{ $color->title }}">
+                                                    </td> --}}
                                                 <td>
                                                     @hasanyrole('Super-Admin|Admin|Blogger')
                                                     {{-- <a class="btn btn-primary"
@@ -46,13 +47,13 @@
 
                                                     <a class="btn btn-primary"
                                                         href="{{ route('colors.show', $color->id) }}">View</a>
-                                                        <form action="{{ route('colors.destroy', $color->id) }}"
-                                                            method="POST">
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                            <br>
-                                                            <button type="submit" class="btn btn-primary">Delete</button>
-                                                        </form>
+                                                    <form action="{{ route('colors.destroy', $color->id) }}"
+                                                        method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                                    </form>
                                                     @endhasanyrole
                                                 </td>
                                             </tr>

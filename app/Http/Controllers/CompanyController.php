@@ -85,8 +85,8 @@ class CompanyController extends Controller
         */
         $emails = [
             'jordantsap@hotmail.gr',
-            // 'cmoridis@gmail.com',
-            // 'stamogiorgoufoteini@gmail.com'
+            'cmoridis@gmail.com',
+            'stamogiorgoufoteini@gmail.com'
         ];
 
         Notification::route('mail', $emails)->notify(new NewUserNotification($user));

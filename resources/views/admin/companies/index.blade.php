@@ -60,6 +60,13 @@
                                                 @can('view_companies', App\Company::class) --}}
                                                 <a class="btn btn-primary"
                                                     href="{{ route('companies.show', $company->id) }}">View</a>
+                                                    <form action="{{ route('companies.destroy', $company->id) }}"
+                                                        method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                                    </form>
                                                 @endhasanyrole
                                             </td>
                                         </tr>

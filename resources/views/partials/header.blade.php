@@ -23,7 +23,7 @@
 
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{url('products')}}" id="productCategoryMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link" href="{{url('products')}}">
                                     Προϊόντα
                                 </a>
                                 @include('partials.megamenu')

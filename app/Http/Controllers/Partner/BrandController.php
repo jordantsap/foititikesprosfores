@@ -45,22 +45,22 @@ class BrandController extends Controller
             'title' =>'required|max:50|unique:brands',
             'slug' => 'unique:brands,title',
             'active' => 'nullable',
-            'image' => 'nullable',
+            // 'image' => '',
             ]);
 
         $brand = new Brand;
         $brand->title = $request->title;
         $brand->slug = \Str::slug($request->title, '-');
-        $brand->image = $request->image;
+        // $brand->image = $request->image;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path("images/brands/" . $filename);
-            Image::make($image)->resize(800, 400)->save($location);
-            // Storage::put($image)->save($location);
-            $brand->image = $filename;
-        }
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $location = public_path("images/brands/" . $filename);
+        //     Image::make($image)->resize(800, 400)->save($location);
+        //     // Storage::put($image)->save($location);
+        //     $brand->image = $filename;
+        // }
 
         $brand->save();
 
@@ -114,7 +114,7 @@ class BrandController extends Controller
             'title' => 'required|max:100',
             'slug' => 'unique:companies,title',
             'active' => 'nullable',
-            'image' => 'nullable',
+            // 'image' => 'nullable',
             //  'meta_description'=> 'required',
             //  'meta_keywords'=> 'required',
         ]);
@@ -123,22 +123,22 @@ class BrandController extends Controller
         $brand->title = $request->title;
         //  $brand->meta_description = $request->input('meta_description');
         //  $brand->meta_keywords = $request->input('meta_keywords');
-        $brand->slug = Str::slug($brand->title);
+        $brand->slug = \Str::slug($brand->title);
         $brand->active = $request->input('active');
-        $brand->image = $request->image;
+        // $brand->image = $request->image;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path("images/brands/" . $filename);
-            $oldfile = $location;
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $location = public_path("images/brands/" . $filename);
+        //     $oldfile = $location;
 
-            if (File::exists($oldfile)) {
-                File::delete($oldfile);
-            }
-            Image::make($image)->resize(800, 400)->save($location);
-            $brand->image = $filename;
-          }
+        //     if (File::exists($oldfile)) {
+        //         File::delete($oldfile);
+        //     }
+        //     Image::make($image)->resize(800, 400)->save($location);
+        //     $brand->image = $filename;
+        //   }
 
         $brand->save();
 

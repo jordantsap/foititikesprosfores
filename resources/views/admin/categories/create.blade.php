@@ -16,23 +16,32 @@
 
             <!-- Default box -->
             <div class="box">
-                <form role="form" action="{{ route('categories.store') }}" method="post">
+                <form role="form" action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="title">Category title</label>
+                            <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
+                                <label for="title">Τίτλος Κατηγορίας</label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                                     placeholder="Category Title" required>
                             </div>
+
                             <div class="form-group">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" name="featured" value="">
+                                    Εμφάνιση στην Αρχική
+                                  </label>
+                                </div>
+                              </div>
+
+                            <div class="form-group col-xs-6 {{ $errors->has('image') ? ' has-error' : '' }}">
                                 <label for="image">Image</label>
-                                <img id="image" width="100"/>
+                                {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
+                                <img id="image" width="100" />
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>
-                                {{-- <img src="images/{{ Session::get('image') }}"> --}}
-                                <p class="help-block">Example block-level help text here.</p>
                                 @if ($errors->has('image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('image') }}</strong>

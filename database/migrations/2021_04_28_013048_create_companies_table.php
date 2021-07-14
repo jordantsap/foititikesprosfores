@@ -27,7 +27,7 @@ class CreateCompaniesTable extends Migration
             $table->string('password')->nullable();
             $table->string('image')->nullable();
             $table->boolean('active')->default(0)->nullable();
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

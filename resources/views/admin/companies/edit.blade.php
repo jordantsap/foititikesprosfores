@@ -32,18 +32,19 @@
                             </div>
                             <div class="col-sm-2 form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
                                 <label for="user_id">Χρήστης</label>
-                                @if ($errors->has('user_id'))
+                                {{-- @if ($errors->has('user_id'))
                                     <strong class="text-danger">{{ $errors->first('user_id') }}</strong>
-                                @endif
+                                @endif --}}
                                 <div class="input-group">
-                                    <select id="user_id" value="{{ $company->category }}" name="user_id"
+                                    <input class="form-control" value="{{ $company->user->username }}" readonly>
+                                    {{-- <select id="user_id" value="{{ $company->category }}" name="user_id"
                                         class="form-control">
                                         <option>Επιλέξτε</option>
                                         @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if ($company->user->id) {{ 'selected' }}
-                      @else @endif>{{ $user->username }}</option>
+                      @else @endif disabled>{{ $user->username }}</option>
                                         @endforeach
-                                    </select>
+                                    </select> --}}
                                 </div>
                             </div>
                             <div class="col-sm-4 form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
@@ -97,7 +98,7 @@
                                 <div class="form-group">
                                     <label for="active">Active
                                         <input type="checkbox" name="active"
-                                            value="" {{ $company->active ? 'checked' : '' }}>
+                                            value="1" {{ $company->active ? 'checked' : '' }}>
                                     </label>
                                 </div>
                             </div>

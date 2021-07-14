@@ -23,7 +23,7 @@
                                             <th>id</th>
                                             <th>Τίτλος</th>
                                             <th>Url</th>
-                                            <th>Εικόνα</th>
+                                            {{-- <th>Εικόνα</th> --}}
                                             @hasanyrole('Super-Admin|Admin|Blogger')
                                             <th>Actions</th>
                                             @endhasanyrole
@@ -35,10 +35,10 @@
                                                 <td>{{ $color->id }}</td>
                                                 <td>{{ $color->title }}</td>
                                                 <td>{{ $color->slug }}</td>
-                                                <td><img width="150px" height="150px"
+                                                {{-- <td><img width="150px" height="150px"
                                                         src="{{ asset('images/colors/' . $color->image) }}"
                                                         alt="{{ $color->title }}"></td>
-                                                <td>
+                                                <td> --}}
                                                     @hasanyrole('Super-Admin|Admin|Blogger')
                                                     {{-- <a class="btn btn-primary"
                                                         href="{{ route('colors.edit', $color->id) }}">Edit</a>
@@ -63,7 +63,7 @@
                                             <th>id</th>
                                             <th>Τίτλος</th>
                                             <th>Url</th>
-                                            <th>Εικόνα</th>
+                                            {{-- <th>Εικόνα</th> --}}
                                             @hasanyrole('Super-Admin|Admin|Blogger')
                                             <th>Actions</th>
                                             @endhasanyrole

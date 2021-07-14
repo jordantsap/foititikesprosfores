@@ -31,8 +31,8 @@
 
                                     </a>
                                     <h3><b>{{ __('Κατηγορία: ') }}</b> <br>
-                                        <a href="{{ route('types', $product->type->slug) }}">
-                                            {{ $product->type->title }}</a>
+                                        <a href="{{ route('types', $product->category->slug) }}">
+                                            {{ $product->category->title }}</a>
                                     </h3>
                                     <h4><b>{{ __('Εταιρεία') }}</b> <a
                                             href="{{ url('company', $product->company ? $product->company->slug : null) }}"><br>{{ Str::limit($product->company ? $product->company->title : '#', 10) }}</a>

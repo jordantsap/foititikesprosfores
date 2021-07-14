@@ -99,7 +99,7 @@ class CompanyController extends Controller
 
         Artisan::call('cache:clear');
 
-        // Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyCreatedNotification($company));
+        Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyCreatedNotification($company));
 
 
         $notification = array(
@@ -121,8 +121,8 @@ class CompanyController extends Controller
         //   $this->authorize('update_companies', 'App\Company');
         $company = Company::find($id);
         $categories = Category::all();
-        $users = User::all();
-        return view('admin.companies.edit', compact('company', 'categories', 'users'));
+        // $users = User::all();
+        return view('admin.companies.edit', compact('company', 'categories'));
     }
 
     /**
@@ -161,9 +161,9 @@ class CompanyController extends Controller
         // $company->password = $request->input('password');
         $company->manager = $request->manager;
         $company->telephone = $request->telephone;
-        // $company->image = $request->input('image');
         $company->url = strtolower($request->url);
         $company->email = strtolower($request->email);
+        // $company->image = $request->image;
 
         if ($request->hasFile('image')) {
             //add new photo
@@ -171,7 +171,6 @@ class CompanyController extends Controller
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/companies/" . $filename);
             $oldfile = $location;
-            // dd($oldfile);
             if (File::exists($oldfile)) {
                 File::delete($oldfile);
             }
@@ -184,7 +183,7 @@ class CompanyController extends Controller
         Artisan::call('cache:clear');
 
         # TODO: THIS
-        // Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyUpdatedNotification($company));
+        Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyUpdatedNotification($company));
 
         $notification = array(
             'message' => 'Company updated successfully',

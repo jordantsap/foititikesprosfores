@@ -28,16 +28,16 @@
                             </div>
 
                         </div>
-                        <div class="form-group col-xs-6">
+                        {{-- <div class="form-group col-xs-6">
                             <label for="image">Image</label><br>
                             <img width="150" height="150" src="{{ asset('images/colors/' . $color->image) }}"
                                 alt="{{ $color->title }}">
-                            {{-- <br> --}}
+                            <br>
                             <img id="image" width="100"/>
                             <input type="file"
                                 onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                 id="image" name="image" value="{{ old('image') }}" required>
-                        </div>
+                        </div> --}}
                         <div class="col-xs-12">
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>

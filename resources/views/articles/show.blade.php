@@ -4,7 +4,7 @@
 {{-- @section('meta_keywords', $article->meta_keywords . ' ' . $article->type->title) --}}
 
 @section('content')
-    <img width="100%" height="350px" src="{{ asset('images/articles/'.$article->image) }}" title="{{ $article->title }}" class=""
+    <img width="100%" height="350px" src="{{ asset('images/articles/'. $article->image) }}" title="{{ $article->title }}" class=""
         alt="{{ $article->title }}">
     <div class="container">
         <div id="articles">

@@ -28,6 +28,12 @@
           <label for="categoryname">category Name</label>
           <input type="text" class="form-control" value="{{$category->title}}" id="categoryname" placeholder="Rokle Name" disabled>
         </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="featured" value="1" @if ($category->featured == 1) {{ 'checked' }} @endif>
+                Εμφάνιση στην Αρχική
+            </label>
+        </div>
         <div class="form-group col-sm-12 mt-2">
             <label for="image">Image</label><br>
             <img width="150" height="150" src="{{ asset('images/categories/' . $category->image) }}"

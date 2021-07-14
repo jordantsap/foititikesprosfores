@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-sm-2 form-group">
                                 <label for="user_id">Χρήστης</label>
-                                <input class="form-control" value="{{ $company->user->username }}" readonly>
+                                <input class="form-control" name="user_id" value="{{ Auth::user()->username }}">
                             </div>
 
                             <div class="col-sm-4 form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
@@ -100,7 +100,7 @@
                             </div>
                             @endhasanyrole
 
-                            <div class="col-sm-4 form-group{{ $errors->has('manager') ? ' has-error' : '' }}">
+                            <div class="col-sm-3 form-group{{ $errors->has('manager') ? ' has-error' : '' }}">
                                 <label for="manager">Όνομα Υπευθύνου</label>
                                 @if ($errors->has('manager'))
                                     <strong class="text-danger">{{ $errors->first('manager') }}</strong>
@@ -119,16 +119,43 @@
                                     <strong class="text-danger">{{ $errors->first('category_id') }}</strong>
                                 @endif --}}
                                 <div class="input-group">
-                                    <input class="form-control" value="{{ $company->category->title }}" readonly>
-                                    {{-- <select id="category_id" name="category_id"
-                                        class="form-control" readonly>
+                                    <select id="category_id" value="{{ $company->category->id }}" name="category_id"
+                                        class="form-control">
                                         <option value="">Επιλέξτε</option>
                                         @foreach ($categories as $category)
-
+                                            <option value="{{ $category->id }}" @if ($company->category->id) {{ 'selected' }}
+                      @else # @endif>{{ $category->title }}</option>
                                         @endforeach
-                                    </select> --}}
+                                    </select>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-list"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 form-group{{ $errors->has('afm') ? ' has-error' : '' }}">
+                                <label for="afm">ΑΦΜ</label>
+                                @if ($errors->has('afm'))
+                                    <strong class="text-danger">{{ $errors->first('afm') }}</strong>
+                                @endif
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="{{ $company->afm }}" id="afm"
+                                        name="afm" placeholder="ΑΦΜ">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 form-group{{ $errors->has('area') ? ' has-error' : '' }}">
+                                <label for="area">Περιοχή</label>
+                                @if ($errors->has('area'))
+                                    <strong class="text-danger">{{ $errors->first('area') }}</strong>
+                                @endif
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="{{ $company->area }}" id="area"
+                                        name="area" placeholder="Περιοχή">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
                                     </span>
                                 </div>
                             </div>

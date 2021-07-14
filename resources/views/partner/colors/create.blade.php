@@ -25,7 +25,7 @@
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                                     placeholder="Color Title" required>
                             </div>
-                            <div class="col-sm-6 form-group">
+                            {{-- <div class="col-sm-6 form-group">
                                 <label for="image">Image</label>
                                 <img id="image" width="100%" />
                                 <input type="file"
@@ -36,7 +36,7 @@
                                         <strong>{{ $errors->first('image') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div> --}}
 
                             <div class="col-xs-12">
                                 <br>

@@ -19,7 +19,7 @@
 
                 <div class="col-sm-9">
                     <div class="row">
-                        @if (count($type->products) > 0)
+                        @if (count($type->category->products) > 0)
                             @foreach ($type->products as $product)
                                 <div class="col-sm-4 text-center">
                                     <a href="{{ url('product', $product->slug) }}">

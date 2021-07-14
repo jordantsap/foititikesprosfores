@@ -80,9 +80,9 @@ class ProductController extends Controller
     public function type(Type $type)
     {
         $type =  Type::where('id', $type->id)->first();
-        $products = $type->products()->paginate(10);
+        // $products = $type->products()->paginate(10);
 
-        return view('products.type', compact('type', 'products'));
+        return view('products.type', compact('type'));
     }
     /**
      * Display the specified resource.

@@ -25,9 +25,9 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::with('type')->find($id);
+        $article = Article::with('articletype')->find($article->id);
 
         return view('articles.show', compact('article'));
     }

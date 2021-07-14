@@ -75,7 +75,7 @@
               @endif
             </div>
 
-            <div class="form-group col-xs-6">
+            <div class="form-group col-xs-6 {{ $errors->has('image') ? ' has-error' : '' }}">
               <label for="image">Image</label>
               {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
               <img id="image" width="100" />

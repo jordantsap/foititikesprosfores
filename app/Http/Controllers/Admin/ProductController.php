@@ -70,7 +70,7 @@ class ProductController extends Controller
             'slider' => 'nullable',
             'company_id' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'color' => '',
+            'color' => 'nullable',
             'price' => 'required',
             'link' => 'required',
         ]);
@@ -100,12 +100,11 @@ class ProductController extends Controller
         }
 
         $product->save();
+
         // Artisan::call('cache:clear');
         Cache::forget('homeproducts');
 
-        // TODO: uncomment to enable THIS before upload
-        //   Notification::route('mail', 'stamogiorgoufoteini@gmail.com')
-        //     ->notify(new ProductCreatedNotification($product));
+          Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new ProductCreatedNotification($product));
 
 
         $notification = array(
@@ -154,7 +153,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
 
         $this->validate($request, [
@@ -168,20 +167,22 @@ class ProductController extends Controller
             'category_id' => '',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link' => '',
+            'color' => 'nullable',
             'price' => 'required',
             // 'sku' => 'required',
             //   'user_id' => 'nullable|integer|Auth::user()->id',
         ]);
 
-        $product = Product::find($product->id);
+        $product = Product::find($id);
         $product->title = $request->title;
         $product->slug = Str::slug($request->title, '-');
-        // $product->brand_id = $request->brand_id;
+        $product->brand_id = $request->brand_id;
         // $product->category_id = $request->category_id;
         // $product->company_id = $request->company_id;
         $product->active = $request->input('active');
         $product->slider = $request->input('slider');
-        // $product->sku = $request->sku;
+        $product->price = $request->price;
+        $product->color_id = $request->color_id;
         $product->link = $request->link;
         $product->description = $request->description;
         //   $product->user_id = Auth::user()->id ?? null;
@@ -192,7 +193,8 @@ class ProductController extends Controller
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/products/" . $filename);
-            $oldfile = $location;
+            $oldfile = public_path("images/products/" . $product->image);
+
             // dd($oldfile);
             Image::make($image)->resize(800, 400)->save($location);
             if (File::exists($oldfile)) {
@@ -206,8 +208,7 @@ class ProductController extends Controller
         // Artisan::call('cache:clear');
         Cache::forget('homeproducts');
 
-        // TODO: ENABLE NOTIFICATIONS
-        //   Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new ProductUpdatedNotification($product));
+        Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new ProductUpdatedNotification($product));
 
         $notification = array(
             'message' => 'Product updated successfully',

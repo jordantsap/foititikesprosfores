@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-sm-2">
+                        {{-- <div class="form-group col-sm-2">
                             <label for="color">Χρώμα</label>
                             <div class="form-control" name="color" id="color">
                                 @if (!empty($company->color))
@@ -114,7 +114,7 @@
                                 @else Null
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="telephone">Τηλέφωνο</label>

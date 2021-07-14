@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             @endhasanyrole
-                            <div class="col-sm-3 form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                            <div class="col-sm-3 form-group {{ $errors->has('category_id') ? ' has-error' : '' }}">
                                 <label for="category_id">Κατηγορία Καταστήματος</label>
                                 @if ($errors->has('category_id'))
                                     <strong class="text-danger">{{ $errors->first('category_id') }}</strong>

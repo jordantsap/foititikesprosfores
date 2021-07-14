@@ -31,6 +31,7 @@ class Category extends Model // level 1 of category relations
         'title',
         'slug',
         'image',
+        'featured',
     ];
 
     /**

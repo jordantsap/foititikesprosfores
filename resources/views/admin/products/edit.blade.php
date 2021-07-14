@@ -133,7 +133,7 @@
                                     <div class="input-group">
                                         <select id="category_id" value="{{ old('category_id') }}" name="category_id"
                                             class="form-control" readonly>
-                                            <option>Επιλέξτε</option>
+                                            <option value="">Επιλέξτε</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}" @if ($product->category->id == $category->id) {{ 'selected' }} @endif>
                                                     {{ $product->category->title }}</option>
@@ -178,7 +178,7 @@
                                     @endif
                                     <div class="input-group">
                                         <select name="color_id" class="form-control">
-                                            <option>Επιλέξτε</option>
+                                            <option value="">Επιλέξτε</option>
                                             @foreach ($colors as $color)
                                                 <option value="{{ $color->id }}"
                                                     {{ $color->id == $product->color->id ? 'selected' : '' }}>

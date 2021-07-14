@@ -16,7 +16,7 @@
 
             <!-- Default box -->
             <div class="box">
-                <form method="post" action="{{ route('subtypes.update', $subtype->id) }}">
+                <form method="post" action="{{ route('subtypes.update', $subtype->id) }}" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
                     <div class="box-body">

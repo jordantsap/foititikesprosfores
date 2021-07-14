@@ -1,5 +1,5 @@
 partner create product company_id db error solved
-new brand create solved
+new brand create solved but image validation exist
 partner afm and url solved
 company edit image bug always submitted
 

@@ -64,6 +64,14 @@
                           <a class="btn btn-primary" href="{{route('products.edit', $product->id)}}">Edit</a> -
 
                           <a class="btn btn-primary" href="{{route('products.show', $product->id)}}">View</a>
+
+                          <form action="{{ route('products.destroy', $product->id) }}"
+                            method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <br>
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </form>
                         @endhasanyrole
                       </td>
                     </tr>

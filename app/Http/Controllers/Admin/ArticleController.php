@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\ArticleType;
 use Auth;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Image;
 use Illuminate\Support\Str;
 
@@ -156,12 +157,18 @@ class ArticleController extends Controller
         $article->description = $request->description;
 
         if ($request->hasFile('image')) {
+            //add new photo
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/articles/" . $filename);
+            $oldfile = public_path("images/articles/" . $article->image);
+
+            if (File::exists($oldfile)) {
+                File::delete($oldfile);
+            }
             Image::make($image)->resize(800, 400)->save($location);
             $article->image = $filename;
-          }
+        }
 
         $article->save();
 

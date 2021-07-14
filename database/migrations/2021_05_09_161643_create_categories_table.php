@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->foreignId('field_id')->nullable();
-            $table->boolean('featured')->default(0);
+            $table->boolean('featured')->default(0)->nullable();
             $table->timestamps();
         });
     }

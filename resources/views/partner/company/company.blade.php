@@ -123,7 +123,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        {{-- <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="telephone">Τηλέφωνο</label>
                                 <div class="input-group">
@@ -134,7 +134,7 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="afm">ΑΦΜ</label>
@@ -190,7 +190,7 @@
                                             <h3>{!! Str::limit($product->description, 20) !!}</h3>
                                         </li>
                                         <li class="list-group-item text-center">
-                                            <a href="{{ route('products.show', $product->id) }}"
+                                            <a href="{{ route('my.products.show', $product->id) }}"
                                                 class="btn btn-default btn-block">Show</a>
                                         </li>
                                     </ul>

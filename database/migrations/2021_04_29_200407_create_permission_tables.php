@@ -7,13 +7,9 @@ use Illuminate\Database\Migrations\Migration;
 class CreatePermissionTables extends Migration
 {
     /**
-<<<<<<< HEAD
      * Run the permission and roles migrations.
      * to add new permissions or roles ad them to the permission model
      * and role seeder file
-=======
-     * Run the migrations.
->>>>>>> 72f5bd286446c606870d889bbc2aae65f481cb54
      *
      * @return void
      */

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Partner;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Company;
+use App\Notifications\CompanyUpdatedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class CompanyController extends Controller
@@ -29,7 +33,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -65,10 +69,10 @@ class CompanyController extends Controller
     public function edit($id)
     {
         //   $this->authorize('update_companies', 'App\Company');
-        $company = Company::with('category')->find($id);
-        // $categories = Category::all();
+        $company = Company::find($id);
+        $categories = Category::all();
         // $users = User::all();
-        return view('partner.company.edit', compact('company'));
+        return view('partner.company.edit', compact('company', 'categories'));
     }
 
     /**
@@ -82,18 +86,19 @@ class CompanyController extends Controller
     {
         //   $this->authorize('update_companies', 'App\Company');
         $this->validate($request, array(
-            'user_id' => 'integer|Auth::user()->id',
-            'manager' => 'required',
-            'telephone' => 'required',
-            'url' => '',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'title' => 'required|min:5|max:100',
-            // 'active' => '',
+            'user_id' => 'nullable',
+            // 'title' => 'nullable|min:5|max:100',
+            'active' => 'nullable',
             // 'slug' => 'unique:companies,title',
-            // 'password' => 'nullable',
-            // 'category_id' => 'required',
-            // 'email' => 'required|email',
+            'password' => 'nullable',
+            'category_id' => 'nullable',
+            'manager' => 'nullable',
+            'telephone' => 'nullable',
+            'url' => 'nullable',
+            'email' => 'nullable|email',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ));
+
         $company = Company::find($id);
 
         $company->user_id = Auth::user()->id;
@@ -101,22 +106,22 @@ class CompanyController extends Controller
         // $company->slug = Str::slug($request->input('title'), '-');
         //  $company->meta_description = $request->input('meta_description');
         //  $company->meta_keywords = $request->input('meta_keywords');
-        // $company->active = $request->active;
-        // $company->category_id = $request->input('category_id');
+        $company->active = $request->input('active');
+        $company->category_id = $request->input('category_id');
         // $company->password = $request->input('password');
         $company->manager = $request->manager;
         $company->telephone = $request->telephone;
         $company->url = strtolower($request->url);
         $company->email = strtolower($request->email);
-        $company->image = $request->input('image');
+        // $company->image = $request->image;
 
         if ($request->hasFile('image')) {
             //add new photo
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/companies/" . $filename);
-            $oldfile = $location;
-            // dd($oldfile);
+            $oldfile = public_path("images/companies/" . $company->image);
+
             if (File::exists($oldfile)) {
                 File::delete($oldfile);
             }
@@ -125,17 +130,18 @@ class CompanyController extends Controller
         }
 
         $company->save();
-        # TODO: THIS
-        // Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyUpdatedNotification($company));
+
+        Artisan::call('cache:clear');
+
+        Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new CompanyUpdatedNotification($company));
 
         $notification = array(
             'message' => 'Company updated successfully',
             'alert-type' => 'info'
         );
 
-        Artisan::call('cache:clear');
 
-        return redirect(route('my.company.show', $company->id))->with($notification);
+        return redirect(route('companies.show', $company->id))->with($notification);
     }
 
     /**

@@ -33,8 +33,8 @@
 
 
                         </div>
-                        @if ($user->hasAnyRole('Super-Admin|Admin|Blogger'))
-                        <div class="col-sm-4 form-group">
+                        @hasanyrole('Super-Admin|Admin|Blogger')
+                        <div class="col-sm-4 form-group {{ $errors->has('email_verified_at') ? ' has-error' : '' }}">
                             <label for="email_verified_at">Επαλήθευση</label>
                             <select class="form-select" name="email_verified_at">
                                 <option value="{{null}}" selected>Επαλήθευση</option>
@@ -42,19 +42,19 @@
                                 <option value="{{ now() }}">Επαλήθευση Email Τώρα</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('roles') ? ' has-error' : '' }}">
                             <label for="roles">User Roles</label>
                             @foreach ($roles->chunk(4) as $chunk)
                                 <div class="row">
                                     @foreach ($chunk as $role)
                                         <div class="col-sm-3">
-                                            <input type="checkbox" name='role[]' value="{{ $role->id }} @if ($role->id == $user->id) {{ 'checked' }} @endif">{{ $role->name }}
+                                            <input type="checkbox" name='role[]' value="{{ $role->id }}"@if ($role->id == $user->id) {{ 'checked' }} @endif>{{ $role->name }}
                                         </div>
                                     @endforeach
                                 </div>
                             @endforeach
                         </div>
-                        @endif
+                        @endhasanyrole
 
                     </div>
                     <!-- /.box-body -->

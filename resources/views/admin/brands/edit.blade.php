@@ -44,7 +44,7 @@
 
 
                         </div>
-                        <div class="form-group col-sm-6">
+                        {{-- <div class="form-group col-sm-6">
                             <label for="image">Image</label>
                             <img src="{{ asset('images/brands/' . $brand->image) }}" alt="{{$brand->title}}">
                             <br>
@@ -59,7 +59,7 @@
                                     <strong>{{ $errors->first('image') }}</strong>
                                 </span>
                             @endif
-                        </div>
+                        </div> --}}
 
 
                         <div class="mt-2 col-12 form-group">

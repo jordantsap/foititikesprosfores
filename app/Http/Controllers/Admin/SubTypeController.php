@@ -130,7 +130,7 @@ class SubTypeController extends Controller
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/subtypes/" . $filename);
             $oldfile = public_path("images/subtypes/" . $subtype->image);
-            // dd($oldfile);
+
             if (File::exists($oldfile)) {
                 File::delete($oldfile);
             }

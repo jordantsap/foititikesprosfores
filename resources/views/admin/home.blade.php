@@ -69,7 +69,7 @@
                         <div class="container-fluid">
                             <h1 class="text-center">Τα προϊόντα σας</h1>
                             <div class="row">
-                                @foreach (Auth::user()->company->products as $product)
+                                @foreach (Auth::user()->products as $product)
 
                                     <div class="col-sm-12 col-md-3 col-lg-3 text-center pb-2">
                                         <a href="{{ route('product', $product->slug) }}">

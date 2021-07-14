@@ -50,7 +50,7 @@ class TypeController extends Controller
             'title' => 'required|max:50|unique:categories',
             'slug' => 'unique:subtypes,title',
             'category_id' => 'integer',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|max:2048',
         ]);
         $type = new Type();
         $type->title = $request->title;
@@ -131,7 +131,7 @@ class TypeController extends Controller
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/types/" . $filename);
-            $oldfile = $location;//public_path("images/types/" . $type->image);
+            $oldfile = public_path("images/types/" . $type->image);
             // dd($oldfile);
             if (File::exists($oldfile)) {
                 File::delete($oldfile);

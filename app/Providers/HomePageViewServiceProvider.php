@@ -32,6 +32,7 @@ class HomePageViewServiceProvider extends ServiceProvider
     public function boot()
     {
         /* this is the file that loads all the data that is shown in the megamenu and home views partials */
+
         view()->composer(['partials.sidebar', 'partials.megamenu', 'partner-form'], function ($view) {
 
             $categories = Cache::rememberForever('categories', function(){
@@ -46,7 +47,7 @@ class HomePageViewServiceProvider extends ServiceProvider
 
         view()->composer('partials.sidebar', function ($view) {
 
-            $companies = Cache::rememberForever('companies', function(){
+            $companies = Cache::rememberForever('sidebarcompanies', function(){
 
               return Company::orderBy('title', 'ASC')->active()->get();
 
@@ -58,10 +59,10 @@ class HomePageViewServiceProvider extends ServiceProvider
 
         view()->composer('home-categories', function ($view) {
 
-            $homecategories = Cache::rememberForever('home-categories', function(){
+            $homecategories = Cache::rememberForever('homecategories', function(){
               return Category::featured()->take(8)->get();
             });
-            $view->with('categories', $homecategories);
+            $view->with('homecategories', $homecategories);
           });
 
         view()->composer('home-products', function ($view) {
@@ -69,7 +70,7 @@ class HomePageViewServiceProvider extends ServiceProvider
             $homeproducts = Cache::rememberForever('homeproducts', function(){
               return Product::featured()->take(8)->get();
             });
-            $view->with('homeproducts', $homeproducts);
+            $view->with('products', $homeproducts);
           });
 
         view()->composer('home-tips', function ($view) {
@@ -88,12 +89,12 @@ class HomePageViewServiceProvider extends ServiceProvider
             $view->with('homeposts', $homeposts);
           });
 
-          // NO CACHING
+          // NO CACHING but returned in both slider and home-products
         view()->composer('index', function ($view) {
 
             $products = Product::active()->addToSlider()->get();
 
-            $view->with('products', $products);
+            $view->with('homeproducts', $products);
 
           });
     }

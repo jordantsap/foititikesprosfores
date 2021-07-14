@@ -20,10 +20,10 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('image')->nullable();
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->boolean('slider')->default(0)->nullable();
-            $table->foreignId('color_id');
-            $table->double('price', 8, 2);
+            $table->foreignId('color_id')->nullable();
+            $table->text('price');
             $table->foreignId('category_id');
             $table->foreignId('user_id')->nullable();
             // $table->foreignId('type_id');

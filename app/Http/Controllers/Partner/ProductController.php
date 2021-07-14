@@ -8,10 +8,13 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\Company;
 use App\Models\Product;
+use App\Notifications\ProductCreatedNotification;
+use App\Notifications\ProductUpdatedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -36,10 +39,10 @@ class ProductController extends Controller
     {
         // $this->authorize('create_products', 'App\Product');
         $categories = Category::all();
-        $companies = Company::all();
+        $company = Company::where('user_id', Auth::user()->id)->get();
         $brands = Brand::all();
         $colors = Color::all();
-        return view('partner.products.create', compact('colors', 'companies', 'brands', 'categories'));
+        return view('partner.products.create', compact('colors', 'company', 'brands', 'categories'));
     }
 
     /**
@@ -58,17 +61,18 @@ class ProductController extends Controller
             'brand_id' => 'nullable',
             'category_id' => '',
             'color_id' => 'nullable',
+            'user_id' => 'nullable|integer|Auth::user()->id',
             // 'active' => 'nullable',
             // 'slider' => 'nullable',
             'company_id' => 'nullable',
-            'image' => '',
-            'color' => '',
-            'price' => '',
-            'link' => '',
+            'image' => 'nullable',
+            'color' => 'nullable',
+            'price' => 'required',
+            'link' => 'required',
         ]);
 
         $product = new Product;
-        $product->title = $request->input('title');
+        $product->title = $request->title;
         // $product->id = $request->sku;
         $product->slug = Str::slug($request->input('title'), '-');
         $product->brand_id = $request->brand_id;
@@ -76,12 +80,13 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->link = $request->link;
         $product->category_id = $request->category_id;
+        $product->user_id = Auth::user()->id;
         //   $product->type_id = $request->type_id;
         $product->color_id = $request->color_id;
         // $product->active = $request->active;
         // $product->slider = $request->slider;
         $product->description = $request->description;
-        $product->image = $request->image;
+        // $product->image = $request->image;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -93,8 +98,8 @@ class ProductController extends Controller
 
         $product->save();
         // TODO: uncomment to enable THIS before upload
-        //   Notification::route('mail', 'stamogiorgoufoteini@gmail.com')
-        //     ->notify(new ProductCreatedNotification($product));
+          Notification::route('mail', 'stamogiorgoufoteini@gmail.com')
+            ->notify(new ProductCreatedNotification($product));
 
         // Artisan::call('cache:clear');
         Cache::forget('homeproducts');
@@ -135,7 +140,7 @@ class ProductController extends Controller
         $brands = Brand::all();
         $colors = Color::all();
         // $users = User::all();
-        return view('partner.products.edit', compact('product', 'categories','brands','colors'));
+        return view('partner.products.edit', compact('product', 'categories', 'brands', 'colors'));
     }
 
     /**
@@ -153,16 +158,15 @@ class ProductController extends Controller
             'brand_id' => 'nullable',
             'color_id' => 'nullable',
             'price' => 'required',
-            'image' => '',
-            'link' => '',
+            'image' => 'nullable',
+            'link' => 'nullable',
             // 'title' => 'required|max:100',
             // 'slug' => 'unique:products,title',
             // 'active' => 'nullable',
             // 'slider' => 'nullable',
             // 'company_id' => 'required',
             // 'category_id' => '',
-            // 'sku' => 'required',
-            //   'user_id' => 'nullable|integer|Auth::user()->id',
+            // 'user_id' => 'nullable|integer|Auth::user()->id',
         ]);
 
         $product = Product::find($id);
@@ -170,24 +174,24 @@ class ProductController extends Controller
         // $product->slug = Str::slug($request->title, '-');
         $product->brand_id = $request->brand_id;
         $product->color_id = $request->color_id;
+        // $product->user_id = $request->user_id;
         // $product->category_id = $request->category_id;
         // $product->company_id = $request->company_id;
         // $product->active = $request->active;
         // $product->slider = $request->slider;
-        // $product->sku = $request->sku;
         $product->link = $request->link;
         $product->price = $request->price;
         $product->description = $request->description;
-        //   $product->user_id = Auth::user()->id;
-        $product->image = $request->image;
+
+        // $product->image = $request->image;
 
         if ($request->hasFile('image')) {
             //add new photo
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/products/" . $filename);
-            $oldfile = $location;
-            // dd($oldfile);
+            $oldfile = public_path("images/products/" . $product->image);
+
             Image::make($image)->resize(800, 400)->save($location);
             if (File::exists($oldfile)) {
                 File::delete($oldfile);
@@ -201,7 +205,7 @@ class ProductController extends Controller
         Cache::forget('homeproducts');
 
         // TODO: ENABLE NOTIFICATIONS
-        //   Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new ProductUpdatedNotification($product));
+          Notification::route('mail', 'stamogiorgoufoteini@gmail.com')->notify(new ProductUpdatedNotification($product));
 
         $notification = array(
             'message' => 'Product updated successfully',

@@ -7,7 +7,7 @@ use App\Models\Color;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
 
 class ColorController extends Controller
 {
@@ -45,21 +45,21 @@ class ColorController extends Controller
          $this->validate($request, [
             'title' => 'required|max:50|unique:categories',
             'slug' => 'unique:colors,title',
-            'image' => '',
+            // 'image' => '',
         ]);
 
         $color = new Color;
         $color->title = $request->title;
         $color->slug = Str::slug($request->title, '-');
-        $color->image = $request->image;
+        // $color->image = $request->image;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path("images/colors/" . $filename);
-            Image::make($image)->resize(800, 400)->save($location);
-            $color->image = $filename;
-        }
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $filename = time() . '.' . $image->getClientOriginalExtension();
+        //     $location = public_path("images/colors/" . $filename);
+        //     Image::make($image)->resize(800, 400)->save($location);
+        //     $color->image = $filename;
+        // }
 
         $color->save();
         Artisan::call('cache:clear');

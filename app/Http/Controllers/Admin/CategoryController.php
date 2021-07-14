@@ -51,11 +51,15 @@ class CategoryController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50|unique:categories',
             'slug' => 'unique:categories,title',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'featured' => '',
         ]);
+
         $category = new Category;
         $category->title = $request->title;
+        $category->featured = $request->featured;
         $category->slug = Str::slug($request->title, '-');
+        // $category->image = $request->image;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -116,19 +120,21 @@ class CategoryController extends Controller
         $this->validate($request, [
             'title' => 'max:50',
             'slug' => 'unique:categories,title',
-            'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|max:2048',
+            'featured' => 'nullable',
         ]);
 
         $category = Category::find($id);
         $category->title = $request->title;
         $category->slug = Str::slug($request->title, '-');
+        $category->featured = $request->input('featured');
 
         if ($request->hasFile('image')) {
             //add new photo
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path("images/categories/" . $filename);
-            $oldfile = $location; //public_path("images/categories/" . $category->image);
+            $oldfile = public_path("images/categories/" . $category->image);
 
             if (File::exists($oldfile)) {
                 File::delete($oldfile);

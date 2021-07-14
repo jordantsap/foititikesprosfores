@@ -22,7 +22,7 @@
                                         <tr>
                                             <th>id</th>
                                             <th>Title</th>
-                                            <th>Image</th>
+                                            {{-- <th>Image</th> --}}
                                             @hasanyrole('Super-Admin|Admin|Blogger')
                                             <th>Actions</th>
                                             @endhasanyrole
@@ -33,10 +33,10 @@
                                             <tr>
                                                 <td>{{ $brand->id }}</td>
                                                 <td>{{ $brand->title }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     <img width="100" src="{{ asset('images/brands/' . $brand->image) }}"
                                                         alt="{{ $brand->title }}"></td>
-                                                <td>
+                                                <td> --}}
                                                     @hasanyrole('Super-Admin|Admin|Blogger')
                                                     <a class="btn btn-primary"
                                                         href="{{ route('brands.edit', $brand->id) }}">Edit</a> -
@@ -59,7 +59,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Title</th>
-                                            <th>Image</th>
+                                            {{-- <th>Image</th> --}}
                                             @hasanyrole('Super-Admin|Admin|Blogger')
                                             <th>Actions</th>
                                             @endhasanyrole

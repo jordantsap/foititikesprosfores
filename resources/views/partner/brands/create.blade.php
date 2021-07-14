@@ -28,21 +28,19 @@
                             <div class="col-sm-6 form-group">
 
                             </div>
-                            <div class="form-group col-sm-6">
+                            {{-- <div class="form-group col-sm-6">
                                 <label for="image">Image</label>
-                                {{-- <input type="file" id="image" name="image" value="{{old('image')}}" required> --}}
+                                <input type="file" id="image" name="image" value="{{old('image')}}" required>
                                 <img id="image" width="100" />
                                 <input type="file"
                                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
                                     id="image" name="image" value="{{ old('image') }}" required>
-
-                                <p class="help-block">Example block-level help text here.</p>
                                 @if ($errors->has('image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('image') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div> --}}
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href='javascript:history.back()' class="btn btn-warning">Back</a>

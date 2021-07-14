@@ -37,13 +37,14 @@
                                         <strong class="text-danger">{{ $errors->first('company_id') }}</strong>
                                     @endif --}}
                                     <div class="input-group">
+                                        <input class="form-control" value="{{ Auth::user()->company->title ?? null}}" readonly>
                                         {{-- <select id="company_id" value="{{ old('company_id') }}" name="company_id"
                                             class="form-control" required>
                                             <option value="">Επιλέξτε</option>
-                                            @if ($companies) --}}
-                                            {{-- @foreach ($companies as $company) --}}
-                                                <input class="form-control" placeholder="{{ Auth::user()->company->title }}" readonly>
-                                            {{-- @endforeach
+                                            @if ($companies)
+                                            @foreach ($companies as $company)
+                                                <option value="{{ $company->id }}">{{ $company->title }}</option>
+                                            @endforeach
                                             @endif
                                         </select> --}}
                                         <span class="input-group-addon">
@@ -191,6 +192,19 @@
                                 </div>
                             </div>
 
+
+                            <div class="col-sm-3">
+                                <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
+                                    <label for="user_id">Όνομα Χρήστη:</label>
+                                    <div class="input-group">
+                                        <input type="text" value="{{ Auth::user()->username}}" class="form-control" name="user_id"
+                                            placeholder="Χρήστης" readonly>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-home"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <!--ROW END--->
